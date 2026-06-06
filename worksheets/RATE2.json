@@ -1,0 +1,96 @@
+{
+    "title": "Rate – Word Problems Level 2",
+    "themeEmoji": "⚡",
+    "problems": [
+        {
+            "question": "Tap A fills a tank at 20 litres per minute. Tap B drains water from the same tank at 5 litres per minute. Both taps are open at the same time. The tank is empty at first and holds 300 litres. How many minutes will it take to fill the tank completely?",
+            "answer": "20",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find the net filling rate (fill rate − drain rate). Then divide the tank capacity by the net rate.",
+            "explanation": "Net fill rate = 20 − 5 = 15 L/min.<br>Time = 300 ÷ 15 = <strong>20 minutes</strong>.",
+            "formatHint": "Enter a whole number (minutes)"
+        },
+        {
+            "question": "Printer X prints 30 pages per minute. Printer Y prints 20 pages per minute. How long will it take for both printers to print 1 500 pages together?",
+            "answer": "30",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Add the printing rates to get the combined rate. Then divide the total pages by the combined rate.",
+            "explanation": "Combined rate = 30 + 20 = 50 pages/min.<br>Time = 1 500 ÷ 50 = <strong>30 minutes</strong>.",
+            "formatHint": "Enter a whole number (minutes)"
+        },
+        {
+            "question": "8 workers can build a wall in 6 days. How many days would 12 workers take to build the same wall, working at the same rate?",
+            "answer": "4",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Multiply the number of workers by the number of days to find the total amount of work. Then divide by the new number of workers.",
+            "explanation": "Total work = 8 × 6 = 48 worker‑days.<br>Days for 12 workers = 48 ÷ 12 = <strong>4 days</strong>.",
+            "formatHint": "Enter a whole number (days)"
+        },
+        {
+            "question": "A 5‑kg bag of rice costs $12.50. At the same rate, how much would 7 kg of rice cost?",
+            "answer": "17.50",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find the cost per kilogram first, then multiply by 7.",
+            "explanation": "Cost per kg = $12.50 ÷ 5 = $2.50.<br>7 kg cost = 7 × $2.50 = <strong>$17.50</strong>.",
+            "formatHint": "Enter the cost in dollars, e.g. 17.50"
+        },
+        {
+            "question": "A tank is filled at a rate of 12 litres every half hour. How many litres does it fill in 2 hours?",
+            "answer": "48",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find how many litres are filled in one hour first.",
+            "explanation": "Rate = 12 L per 0.5 h → 24 L per hour.<br>In 2 hours: 24 × 2 = <strong>48 litres</strong>.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A factory normally produces 150 toys in 5 hours. After 2 hours, a machine breaks and the production rate is halved. How many more hours are needed to finish the remaining toys?",
+            "answer": "6",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find the normal rate, then how many toys are made in the first 2 hours. Subtract to find the remaining toys. Then use the reduced rate to find the extra time.",
+            "explanation": "Normal rate = 150 ÷ 5 = 30 toys/h.<br>In 2 hours: 60 toys made. Remaining = 90 toys.<br>Reduced rate = 15 toys/h.<br>Extra time = 90 ÷ 15 = <strong>6 hours</strong>.",
+            "formatHint": "Enter a whole number (hours)"
+        },
+        {
+            "question": "A plumber charges a flat fee of $50 plus $30 per hour. How much will he charge for a job that takes 4.5 hours?",
+            "answer": "185",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Multiply the hourly rate by the number of hours, then add the flat fee.",
+            "explanation": "Labour = $30 × 4.5 = $135.<br>Total = $50 + $135 = <strong>$185</strong>.",
+            "formatHint": "Enter a whole number (dollars)"
+        },
+        {
+            "question": "A family of 3 uses 450 litres of water in 5 days. How many litres would a family of 5 use in 7 days, assuming the same daily water usage per person?",
+            "answer": "1050",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find the usage per person per day. Then multiply by 5 people and 7 days.",
+            "explanation": "Per person per day = 450 ÷ (3 × 5) = 30 L.<br>For 5 people in 7 days: 5 × 7 × 30 = <strong>1 050 litres</strong>.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "Peter can paint a room in 3 hours. John can paint the same room in 6 hours. How long will it take if they paint the room together?",
+            "answer": "2",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Add their painting rates (the fraction of the room they paint per hour). Then find how long to paint 1 whole room together.",
+            "explanation": "Peter’s rate = {{F:1,3}} room/h. John’s rate = {{F:1,6}} room/h.<br>Combined rate = {{F:1,3}} + {{F:1,6}} = {{F:1,2}} room/h.<br>Time = 1 ÷ {{F:1,2}} = <strong>2 hours</strong>.",
+            "formatHint": "Enter a whole number (hours)"
+        },
+        {
+            "question": "A baker uses 2.5 kg of flour to make 8 loaves of bread. He gets an order for 50 loaves. Flour costs $1.60 per kg. How much will the flour for the order cost?",
+            "answer": "25",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find how many kg of flour are needed for 50 loaves, then multiply by the cost per kg.",
+            "explanation": "Flour per loaf = 2.5 ÷ 8 = 0.3125 kg.<br>For 50 loaves = 50 × 0.3125 = 15.625 kg.<br>Cost = 15.625 × $1.60 = <strong>$25.00</strong>.",
+            "formatHint": "Enter the cost in dollars, e.g. 25"
+        }
+    ]
+}

@@ -1,0 +1,96 @@
+{
+    "title": "Rate – Word Problems Level 1",
+    "themeEmoji": "⏱️",
+    "problems": [
+        {
+            "question": "A tap fills a tank at 15 litres per minute. How many litres does it fill in 8 minutes?",
+            "answer": "120",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Multiply the rate by the number of minutes.",
+            "explanation": "15 × 8 = <strong>120 litres</strong>.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A factory packs 240 boxes in 6 hours. How many boxes does it pack in 1 hour?",
+            "answer": "40",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the total boxes by the number of hours.",
+            "explanation": "240 ÷ 6 = <strong>40 boxes per hour</strong>.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A printer prints 12 pages per minute. How many pages does it print in 15 minutes?",
+            "answer": "180",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Multiply the printing rate by the number of minutes.",
+            "explanation": "12 × 15 = <strong>180 pages</strong>.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A baker uses 3 eggs to make one cake. He has 36 eggs. How many cakes can he make?",
+            "answer": "12",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the total number of eggs by the eggs needed per cake.",
+            "explanation": "36 ÷ 3 = <strong>12 cakes</strong>.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A shop sells apples at $3 for every 5 apples. How much do 20 apples cost?",
+            "answer": "12",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Find how many groups of 5 are in 20, then multiply by $3.",
+            "explanation": "20 ÷ 5 = 4 groups. 4 × $3 = <strong>$12</strong>.",
+            "formatHint": "Enter a whole number (dollars)"
+        },
+        {
+            "question": "A swimming pool is being filled at 250 litres per hour. The pool holds 1 500 litres. How many hours will it take to fill the pool completely?",
+            "answer": "6",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the total capacity by the fill rate.",
+            "explanation": "1 500 ÷ 250 = <strong>6 hours</strong>.",
+            "formatHint": "Enter a whole number (hours)"
+        },
+        {
+            "question": "A worker earns $15 per hour. He worked for 8 hours on Saturday and 5 hours on Sunday. How much did he earn altogether?",
+            "answer": "195",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Add the hours, then multiply by the hourly rate.",
+            "explanation": "Total hours = 8 + 5 = 13. 13 × $15 = <strong>$195</strong>.",
+            "formatHint": "Enter a whole number (dollars)"
+        },
+        {
+            "question": "A teacher marks 30 test papers in 2 hours. How many papers can she mark in 1 hour?",
+            "answer": "15",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the number of papers by the number of hours.",
+            "explanation": "30 ÷ 2 = <strong>15 papers per hour</strong>.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A pipe drains 1 200 litres of water in 30 minutes. How many litres does it drain per minute?",
+            "answer": "40",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the total litres by the number of minutes.",
+            "explanation": "1 200 ÷ 30 = <strong>40 litres per minute</strong>.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A box of 6 pens costs $7.20. How much does one pen cost?",
+            "answer": "1.20",
+            "tolerance": 0.01,
+            "type": "rate",
+            "hint": "Divide the total cost by the number of pens.",
+            "explanation": "$7.20 ÷ 6 = <strong>$1.20</strong> per pen.",
+            "formatHint": "Enter the cost in dollars, e.g. 1.20"
+        }
+    ]
+}
