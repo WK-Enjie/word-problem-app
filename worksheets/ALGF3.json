@@ -1,0 +1,96 @@
+{
+    "title": "Algebra – Algebraic Fractions Level 2",
+    "themeEmoji": "➗",
+    "problems": [
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup> − 9</span><span class='denominator'>x<sup>2</sup> + x − 6</span></span>",
+            "answer": "(x-3)/(x-2)",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor both. Cancel (x+3).",
+            "explanation": "(x-3)/(x-2).",
+            "formatHint": "Enter as (x-3)/(x-2)"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>2x<sup>2</sup> − 8</span><span class='denominator'>x<sup>2</sup> − 4x + 4</span></span>",
+            "answer": "(2(x+2))/(x-2)",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor fully: 2(x-2)(x+2)/(x-2)². Cancel one (x-2).",
+            "explanation": "2(x+2)/(x-2).",
+            "formatHint": "Enter as (2(x+2))/(x-2)"
+        },
+        {
+            "question": "Multiply and simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup> − 4</span><span class='denominator'>x<sup>2</sup> − x − 6</span></span> × <span class='fraction'><span class='numerator'>x + 3</span><span class='denominator'>x − 2</span></span>",
+            "answer": "(x+3)/(x-3)",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor all quadratics. Cancel (x-2) and (x+2).",
+            "explanation": "(x+3)/(x-3).",
+            "formatHint": "Enter as (x+3)/(x-3)"
+        },
+        {
+            "question": "Divide and simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup> + 5x + 6</span><span class='denominator'>x<sup>2</sup> − 9</span></span> ÷ <span class='fraction'><span class='numerator'>x + 2</span><span class='denominator'>x − 3</span></span>",
+            "answer": "1",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Flip and multiply. Factor: (x+2)(x+3)/((x-3)(x+3)) × (x-3)/(x+2). Everything cancels.",
+            "explanation": "1.",
+            "formatHint": "Enter as 1"
+        },
+        {
+            "question": "Express as a single fraction:<br><br><span class='fraction'><span class='numerator'>3</span><span class='denominator'>x − 2</span></span> + <span class='fraction'><span class='numerator'>1</span><span class='denominator'>x + 2</span></span>",
+            "answer": "(4(x+1))/((x-2)(x+2))",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "LCD = (x-2)(x+2).",
+            "explanation": "4(x+1)/((x-2)(x+2)).",
+            "formatHint": "Enter as (4(x+1))/((x-2)(x+2))"
+        },
+        {
+            "question": "Express as a single fraction:<br><br><span class='fraction'><span class='numerator'>x</span><span class='denominator'>x<sup>2</sup> − 1</span></span> − <span class='fraction'><span class='numerator'>1</span><span class='denominator'>x + 1</span></span>",
+            "answer": "1/((x-1)(x+1))",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor x²-1 = (x-1)(x+1). Rewrite second fraction over the LCD, subtract.",
+            "explanation": "1/((x-1)(x+1)).",
+            "formatHint": "Enter as 1/((x-1)(x+1))"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>2x<sup>2</sup> + 5x − 3</span><span class='denominator'>4x<sup>2</sup> − 1</span></span>",
+            "answer": "(x+3)/(2x+1)",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor numerator (2x-1)(x+3), denominator (2x-1)(2x+1). Cancel (2x-1).",
+            "explanation": "(x+3)/(2x+1).",
+            "formatHint": "Enter as (x+3)/(2x+1)"
+        },
+        {
+            "question": "Multiply and simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup> + 3x + 2</span><span class='denominator'>x<sup>2</sup> − 4</span></span> × <span class='fraction'><span class='numerator'>x − 2</span><span class='denominator'>x + 1</span></span>",
+            "answer": "1",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor: (x+1)(x+2)/((x-2)(x+2)) × (x-2)/(x+1). All cancel.",
+            "explanation": "1.",
+            "formatHint": "Enter as 1"
+        },
+        {
+            "question": "Express as a single fraction:<br><br><span class='fraction'><span class='numerator'>2</span><span class='denominator'>x − 3</span></span> + <span class='fraction'><span class='numerator'>3</span><span class='denominator'>x + 3</span></span> + <span class='fraction'><span class='numerator'>1</span><span class='denominator'>x<sup>2</sup> − 9</span></span>",
+            "answer": "(5x-2)/((x-3)(x+3))",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor x²-9 = (x-3)(x+3). LCD = (x-3)(x+3).",
+            "explanation": "(5x-2)/((x-3)(x+3)).",
+            "formatHint": "Enter as (5x-2)/((x-3)(x+3))"
+        },
+        {
+            "question": "Simplify the complex fraction:<br><br><span class='fraction'><span class='numerator'><span class='fraction'><span class='numerator'>1</span><span class='denominator'>x − 1</span></span> + <span class='fraction'><span class='numerator'>1</span><span class='denominator'>x + 1</span></span></span><span class='denominator'><span class='fraction'><span class='numerator'>2</span><span class='denominator'>x<sup>2</sup> − 1</span></span></span></span>",
+            "answer": "x",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Combine the numerator into one fraction, then divide by the denominator (multiply by reciprocal).",
+            "explanation": "x.",
+            "formatHint": "Enter as x"
+        }
+    ]
+}

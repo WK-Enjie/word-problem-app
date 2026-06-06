@@ -1,0 +1,96 @@
+{
+    "title": "Algebra – Algebraic Fractions",
+    "themeEmoji": "➗",
+    "problems": [
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>(x+2)(x+3)</span><span class='denominator'>3(x+3)</span></span>",
+            "answer": "(x+2)/3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Cancel the common factor (x+3).",
+            "explanation": "(x+2)/3.",
+            "formatHint": "Enter as (x+2)/3"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>4(x+5)</span><span class='denominator'>8</span></span>",
+            "answer": "(x+5)/2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Cancel the common factor 4 (4 and 8).",
+            "explanation": "(x+5)/2.",
+            "formatHint": "Enter as (x+5)/2"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>(x+4)(x-3)</span><span class='denominator'>x+4</span></span>",
+            "answer": "x-3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Cancel (x+4).",
+            "explanation": "x-3.",
+            "formatHint": "Enter as x-3"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup>+6x+8</span><span class='denominator'>x+2</span></span>",
+            "answer": "x+4",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factorise numerator to (x+2)(x+4), then cancel (x+2).",
+            "explanation": "x+4.",
+            "formatHint": "Enter as x+4"
+        },
+        {
+            "question": "Simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup>−x−12</span><span class='denominator'>x+3</span></span>",
+            "answer": "x-4",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factorise numerator to (x+3)(x-4), cancel (x+3).",
+            "explanation": "x-4.",
+            "formatHint": "Enter as x-4"
+        },
+        {
+            "question": "Multiply and simplify:<br><br><span class='fraction'><span class='numerator'>(x+3)</span><span class='denominator'>4</span></span> × <span class='fraction'><span class='numerator'>8</span><span class='denominator'>(x+3)(x-1)</span></span>",
+            "answer": "2/(x-1)",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Multiply numerators and denominators. Cancel (x+3) and simplify 8/4 = 2.",
+            "explanation": "2/(x-1).",
+            "formatHint": "Enter as 2/(x-1)"
+        },
+        {
+            "question": "Divide and simplify:<br><br><span class='fraction'><span class='numerator'>x<sup>2</sup>+7x+10</span><span class='denominator'>6</span></span> ÷ <span class='fraction'><span class='numerator'>x+5</span><span class='denominator'>3</span></span>",
+            "answer": "(x+2)/2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Flip the second fraction and multiply. Factorise x²+7x+10 = (x+2)(x+5). Cancel (x+5) and 3/6 = 1/2.",
+            "explanation": "(x+2)/2.",
+            "formatHint": "Enter as (x+2)/2"
+        },
+        {
+            "question": "Multiply and simplify:<br><br><span class='fraction'><span class='numerator'>3(x-2)</span><span class='denominator'>x+1</span></span> × <span class='fraction'><span class='numerator'>(x+1)(x+4)</span><span class='denominator'>9(x-2)</span></span>",
+            "answer": "(x+4)/3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Cancel (x-2) and (x+1). Simplify 3/9 = 1/3.",
+            "explanation": "(x+4)/3.",
+            "formatHint": "Enter as (x+4)/3"
+        },
+        {
+            "question": "Express as a single fraction:<br><br><span class='fraction'><span class='numerator'>2</span><span class='denominator'>x+1</span></span> + <span class='fraction'><span class='numerator'>3</span><span class='denominator'>x+2</span></span>",
+            "answer": "(5x+7)/((x+1)(x+2))",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "LCD = (x+1)(x+2). Multiply each fraction by the missing factor, add numerators.",
+            "explanation": "(5x+7)/((x+1)(x+2)).",
+            "formatHint": "Enter as (5x+7)/((x+1)(x+2))"
+        },
+        {
+            "question": "Express as a single fraction:<br><br><span class='fraction'><span class='numerator'>4</span><span class='denominator'>x+3</span></span> + <span class='fraction'><span class='numerator'>1</span><span class='denominator'>x-1</span></span>",
+            "answer": "(5x-1)/((x+3)(x-1))",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "LCD = (x+3)(x-1).",
+            "explanation": "(5x-1)/((x+3)(x-1)).",
+            "formatHint": "Enter as (5x-1)/((x+3)(x-1))"
+        }
+    ]
+}
