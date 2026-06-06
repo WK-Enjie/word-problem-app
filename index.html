@@ -138,30 +138,52 @@
         return text;
     }
 
-    // ===================== ANSWER PARSING =====================
+    // ===================== ANSWER PARSING (FIXED) =====================
     function parseAnswer(raw) {
         let s = String(raw).trim().replace(/\s+/g, ' ');
         if (!s) return NaN;
-        if (s.endsWith('%')) { const p = parseFloat(s); return isNaN(p)?NaN:p/100; }
-        if (/^\d{1,2}:\d{2}$/.test(s)) { const [h,m]=s.split(':').map(Number); return h + m/60; }
+
+        // If the string contains letters (variables) or arithmetic operators
+        // (except the ones used for fractions/time/percentage), it's algebraic.
+        // This prevents parseFloat from grabbing a partial number.
+        if (/[a-zA-Z]/.test(s) || /[+\-*/=^]/.test(s.replace(/^[-+]/, ''))) {
+            return NaN;
+        }
+
+        // Percentage
+        if (s.endsWith('%')) {
+            const p = parseFloat(s);
+            return isNaN(p) ? NaN : p / 100;
+        }
+        // Time (H:MM)
+        if (/^\d{1,2}:\d{2}$/.test(s)) {
+            const [h, m] = s.split(':').map(Number);
+            return h + m / 60;
+        }
+        // Mixed number (whole fraction)
         const mixed = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);
-        if (mixed) { const w=parseInt(mixed[1]), n=parseInt(mixed[2]), d=parseInt(mixed[3]); if(d===0)return NaN; return w<0? w - n/d : w + n/d; }
-        if (s.includes('/')) { const [n,d]=s.split('/').map(Number); if(isNaN(n)||isNaN(d)||d===0)return NaN; return n/d; }
+        if (mixed) {
+            const w = parseInt(mixed[1]), n = parseInt(mixed[2]), d = parseInt(mixed[3]);
+            if (d === 0) return NaN;
+            return w < 0 ? w - n / d : w + n / d;
+        }
+        // Simple fraction
+        if (s.includes('/')) {
+            const [n, d] = s.split('/').map(Number);
+            if (isNaN(n) || isNaN(d) || d === 0) return NaN;
+            return n / d;
+        }
+        // Plain number
         return parseFloat(s);
     }
 
     // ===================== ROBUST NORMALISATION =====================
     function normalizeAlgebra(expr) {
         if (!expr) return expr;
-        // 1. Lowercase and remove all spaces
         let s = expr.trim().toLowerCase().replace(/\s+/g, '');
         if (!s) return s;
 
-        // 2. If it's a simple sum/difference of two terms (linear binomial)
-        // We'll parse terms respecting signs, then reorder: variable first, constant second
-        const binomPattern = /^([+-]?)(\d*\.?\d*)(x?)([+-]\d*\.?\d*)(x?)$/;
-        // This is a bit rigid; let's try a more flexible method:
-        // Use a regex that extracts all terms with coefficients and x
+        // 1. Binomial sum/difference (linear)
         const terms = s.match(/[+-]?\d*\.?\d*x?/g);
         if (terms && terms.length === 2) {
             let varTerm = null, constTerm = null;
@@ -170,30 +192,27 @@
                 else constTerm = t;
             });
             if (varTerm && constTerm) {
-                // Normalise variable term
-                let coeffStr = varTerm.replace('x','');
+                let coeffStr = varTerm.replace('x', '');
                 let coeff = 1;
                 if (coeffStr === '' || coeffStr === '+') coeff = 1;
                 else if (coeffStr === '-') coeff = -1;
                 else coeff = parseFloat(coeffStr);
 
-                let constVal = parseFloat(constTerm);
-
+                const constVal = parseFloat(constTerm);
                 let normalised = '';
                 if (coeff === 1) normalised = 'x';
                 else if (coeff === -1) normalised = '-x';
                 else if (coeff > 0) normalised = coeff + 'x';
-                else normalised = coeff + 'x'; // already has minus sign
+                else normalised = coeff + 'x'; // negative includes sign
 
                 if (constVal > 0) normalised += '+' + constVal;
-                else if (constVal < 0) normalised += constVal; // minus sign included
+                else if (constVal < 0) normalised += constVal;
                 else normalised += '+0';
-
                 return normalised;
             }
         }
 
-        // 3. Product of factors: extract brackets, sort them, and prepend any leading monomial
+        // 2. Product of factors – sort brackets
         const leadingMatch = s.match(/^([\d.]*x?)(\(.*\)[\(\)\dx]*)$/);
         let leading = '';
         let rest = s;
@@ -209,7 +228,7 @@
             return sortedFactors;
         }
 
-        // 4. Fallback: just return the cleaned string
+        // 3. Fallback
         return s;
     }
 
