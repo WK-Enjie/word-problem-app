@@ -70,6 +70,7 @@
             <span class="code-chip" onclick="useCode('RATE1')">RATE1</span>
             <span class="code-chip" onclick="useCode('RATE2')">RATE2</span>
             <span class="code-chip" onclick="useCode('RATE3')">RATE3</span>
+            <span class="code-chip" onclick="useCode('ALGE1')">ALGE1</span>
             <span class="code-chip" onclick="useCode('ALGF1')">ALGF1</span>
             <span class="code-chip" onclick="useCode('ALGF2')">ALGF2</span>
             <span class="code-chip" onclick="useCode('ALGF3')">ALGF3</span>
@@ -149,13 +150,81 @@
         return parseFloat(s);
     }
 
-    // ⚡ FIXED: now uses <= tol so tolerance=0 works for exact numeric matches
-    function answersMatch(user, correct, tol=0.001) {
-        const u = parseAnswer(user), c = parseAnswer(correct);
-        if (!isNaN(u) && !isNaN(c)) return Math.abs(u-c) <= tol;
-        return String(user).trim().toLowerCase().replace(/\s+/g,'') === String(correct).trim().toLowerCase().replace(/\s+/g,'');
+    // ===================== NORMALIZE ALGEBRAIC EXPRESSIONS =====================
+    function normalizeAlgebra(expr) {
+        if (!expr) return expr;
+        let s = expr.trim().toLowerCase().replace(/\s+/g, '');
+        if (!s) return s;
+
+        // 1. Sum of two terms (linear binomial) e.g. 4x+23, 23+4x, -5x+26, 26-5x
+        const binomMatch = s.match(/^([+-]?\d*\.?\d*x?)([+-]\d*\.?\d*x?)$/);
+        if (binomMatch) {
+            let t1 = binomMatch[1], t2 = binomMatch[2];
+            // Ensure each term is well‑formed
+            const terms = [t1, t2];
+            let varTerm = null, numTerm = null;
+            for (let t of terms) {
+                if (t.includes('x')) varTerm = t;
+                else numTerm = t;
+            }
+            if (varTerm && numTerm) {
+                // Extract coefficient
+                let coeffStr = varTerm.replace('x','');
+                let coeff = 1;
+                if (coeffStr === '' || coeffStr === '+') coeff = 1;
+                else if (coeffStr === '-') coeff = -1;
+                else coeff = parseFloat(coeffStr);
+                // Determine sign and value of constant
+                let constVal = parseFloat(numTerm);
+                // Build normalized string: variable term first
+                let normalized = '';
+                if (coeff === 1) normalized = 'x';
+                else if (coeff === -1) normalized = '-x';
+                else if (coeff > 0) normalized = coeff + 'x';
+                else normalized = coeff + 'x'; // negative already has sign
+
+                if (constVal > 0) normalized += '+' + constVal;
+                else if (constVal < 0) normalized += constVal; // negative sign included
+                else normalized += '+0';
+                return normalized;
+            }
+        }
+
+        // 2. Product of factors (e.g., 3x(2x+5), (x+3)(x+5), 2(x+3)(x-5))
+        // Remove any leading monomial (like '3x', '2') and then sort brackets
+        const leadingMatch = s.match(/^([\d]*x?)(\(.*\)[\(\)\d]*)$/);
+        let leading = '';
+        let rest = s;
+        if (leadingMatch) {
+            leading = leadingMatch[1];
+            rest = leadingMatch[2];
+        }
+        // Extract factors inside parentheses
+        const bracketParts = rest.match(/\([^()]+\)/g);
+        if (bracketParts && bracketParts.length > 0) {
+            bracketParts.sort();
+            let sortedFactors = bracketParts.join('');
+            if (leading) sortedFactors = leading + sortedFactors;
+            return sortedFactors;
+        }
+
+        // 3. For anything else, just return the cleaned string (already without spaces)
+        return s;
     }
 
+    // ===================== ANSWER MATCHING (with normalization) =====================
+    function answersMatch(user, correct, tol=0.001) {
+        const u = parseAnswer(user), c = parseAnswer(correct);
+        // If both parse as numbers, compare numerically
+        if (!isNaN(u) && !isNaN(c)) return Math.abs(u - c) <= tol;
+
+        // Otherwise, normalize both strings and compare
+        const normUser = normalizeAlgebra(user);
+        const normCorrect = normalizeAlgebra(correct);
+        return normUser === normCorrect;
+    }
+
+    // ===================== PROGRESS & GAME =====================
     function updateProgress() {
         if (!gameActive || totalQ===0) return;
         const pct = (currentIndex/totalQ)*100;
