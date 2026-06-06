@@ -142,38 +142,15 @@
     function parseAnswer(raw) {
         let s = String(raw).trim().replace(/\s+/g, ' ');
         if (!s) return NaN;
-
-        // If the string contains letters (variables) or arithmetic operators
-        // (except the ones used for fractions/time/percentage), it's algebraic.
-        // This prevents parseFloat from grabbing a partial number.
+        // If it contains letters or operators (besides leading sign), treat as algebra
         if (/[a-zA-Z]/.test(s) || /[+\-*/=^]/.test(s.replace(/^[-+]/, ''))) {
             return NaN;
         }
-
-        // Percentage
-        if (s.endsWith('%')) {
-            const p = parseFloat(s);
-            return isNaN(p) ? NaN : p / 100;
-        }
-        // Time (H:MM)
-        if (/^\d{1,2}:\d{2}$/.test(s)) {
-            const [h, m] = s.split(':').map(Number);
-            return h + m / 60;
-        }
-        // Mixed number (whole fraction)
+        if (s.endsWith('%')) { const p = parseFloat(s); return isNaN(p)?NaN:p/100; }
+        if (/^\d{1,2}:\d{2}$/.test(s)) { const [h,m]=s.split(':').map(Number); return h + m/60; }
         const mixed = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);
-        if (mixed) {
-            const w = parseInt(mixed[1]), n = parseInt(mixed[2]), d = parseInt(mixed[3]);
-            if (d === 0) return NaN;
-            return w < 0 ? w - n / d : w + n / d;
-        }
-        // Simple fraction
-        if (s.includes('/')) {
-            const [n, d] = s.split('/').map(Number);
-            if (isNaN(n) || isNaN(d) || d === 0) return NaN;
-            return n / d;
-        }
-        // Plain number
+        if (mixed) { const w=parseInt(mixed[1]), n=parseInt(mixed[2]), d=parseInt(mixed[3]); if(d===0)return NaN; return w<0? w - n/d : w + n/d; }
+        if (s.includes('/')) { const [n,d]=s.split('/').map(Number); if(isNaN(n)||isNaN(d)||d===0)return NaN; return n/d; }
         return parseFloat(s);
     }
 
@@ -182,7 +159,6 @@
         if (!expr) return expr;
         let s = expr.trim().toLowerCase().replace(/\s+/g, '');
         if (!s) return s;
-
         // 1. Binomial sum/difference (linear)
         const terms = s.match(/[+-]?\d*\.?\d*x?/g);
         if (terms && terms.length === 2) {
@@ -197,29 +173,23 @@
                 if (coeffStr === '' || coeffStr === '+') coeff = 1;
                 else if (coeffStr === '-') coeff = -1;
                 else coeff = parseFloat(coeffStr);
-
                 const constVal = parseFloat(constTerm);
                 let normalised = '';
                 if (coeff === 1) normalised = 'x';
                 else if (coeff === -1) normalised = '-x';
                 else if (coeff > 0) normalised = coeff + 'x';
-                else normalised = coeff + 'x'; // negative includes sign
-
+                else normalised = coeff + 'x';
                 if (constVal > 0) normalised += '+' + constVal;
                 else if (constVal < 0) normalised += constVal;
                 else normalised += '+0';
                 return normalised;
             }
         }
-
         // 2. Product of factors – sort brackets
         const leadingMatch = s.match(/^([\d.]*x?)(\(.*\)[\(\)\dx]*)$/);
         let leading = '';
         let rest = s;
-        if (leadingMatch) {
-            leading = leadingMatch[1];
-            rest = leadingMatch[2];
-        }
+        if (leadingMatch) { leading = leadingMatch[1]; rest = leadingMatch[2]; }
         const bracketParts = rest.match(/\([^()]+\)/g);
         if (bracketParts && bracketParts.length > 0) {
             bracketParts.sort();
@@ -227,18 +197,23 @@
             if (leading) sortedFactors = leading + sortedFactors;
             return sortedFactors;
         }
-
         // 3. Fallback
         return s;
     }
 
-    // ===================== ANSWER MATCHING =====================
+    // ===================== ANSWER MATCHING (with DEBUG) =====================
     function answersMatch(user, correct, tol=0.001) {
         const u = parseAnswer(user), c = parseAnswer(correct);
         if (!isNaN(u) && !isNaN(c)) return Math.abs(u - c) <= tol;
 
         const normUser = normalizeAlgebra(user);
         const normCorrect = normalizeAlgebra(correct);
+        
+        // DEBUG: show what's being compared
+        alert("User input: " + user + "\nNormalised: " + normUser + 
+              "\n\nCorrect answer: " + correct + "\nNormalised: " + normCorrect +
+              "\n\nMatch: " + (normUser === normCorrect));
+        
         return normUser === normCorrect;
     }
 
