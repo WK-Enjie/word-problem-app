@@ -7,8 +7,8 @@
             "answer": "(x+2)/3",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Cancel the common factor (x+3).",
-            "explanation": "(x+2)/3.",
+            "hint": "Look for a factor that appears in both the numerator and the denominator.",
+            "explanation": "Cancel (x+3) → (x+2)/3.",
             "formatHint": "Enter as (x+2)/3"
         },
         {
@@ -16,8 +16,8 @@
             "answer": "(x+5)/2",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Cancel the common factor 4 (4 and 8).",
-            "explanation": "(x+5)/2.",
+            "hint": "Reduce the fraction by dividing the numerator and denominator by their highest common factor.",
+            "explanation": "Divide 4 and 8 by 4 → (x+5)/2.",
             "formatHint": "Enter as (x+5)/2"
         },
         {
@@ -25,8 +25,8 @@
             "answer": "x-3",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Cancel (x+4).",
-            "explanation": "x-3.",
+            "hint": "Is there a binomial that appears both on top and bottom?",
+            "explanation": "Cancel (x+4) → x-3.",
             "formatHint": "Enter as x-3"
         },
         {
@@ -34,8 +34,8 @@
             "answer": "x+4",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factorise numerator to (x+2)(x+4), then cancel (x+2).",
-            "explanation": "x+4.",
+            "hint": "Factorise the numerator first. Then check if any factor cancels with the denominator.",
+            "explanation": "x²+6x+8 = (x+2)(x+4). Cancel (x+2) → x+4.",
             "formatHint": "Enter as x+4"
         },
         {
@@ -43,8 +43,8 @@
             "answer": "x-4",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factorise numerator to (x+3)(x-4), cancel (x+3).",
-            "explanation": "x-4.",
+            "hint": "Factorise the numerator. Look for two numbers that multiply to −12 and add to −1.",
+            "explanation": "(x+3)(x-4). Cancel (x+3) → x-4.",
             "formatHint": "Enter as x-4"
         },
         {
@@ -52,8 +52,8 @@
             "answer": "2/(x-1)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Multiply numerators and denominators. Cancel (x+3) and simplify 8/4 = 2.",
-            "explanation": "2/(x-1).",
+            "hint": "Multiply numerators and denominators. Then cancel any common factors and simplify the numbers.",
+            "explanation": "((x+3)×8) / (4×(x+3)(x-1)). Cancel (x+3) and 8/4=2 → 2/(x-1).",
             "formatHint": "Enter as 2/(x-1)"
         },
         {
@@ -61,8 +61,8 @@
             "answer": "(x+2)/2",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Flip the second fraction and multiply. Factorise x²+7x+10 = (x+2)(x+5). Cancel (x+5) and 3/6 = 1/2.",
-            "explanation": "(x+2)/2.",
+            "hint": "To divide, multiply by the reciprocal. Factor the quadratic and cancel common factors.",
+            "explanation": "Factor numerator to (x+2)(x+5). Multiply by 3/(x+5). Cancel (x+5) and 3/6=1/2 → (x+2)/2.",
             "formatHint": "Enter as (x+2)/2"
         },
         {
@@ -70,8 +70,8 @@
             "answer": "(x+4)/3",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Cancel (x-2) and (x+1). Simplify 3/9 = 1/3.",
-            "explanation": "(x+4)/3.",
+            "hint": "Multiply the fractions together. Look for factors that appear in both numerator and denominator and cancel them.",
+            "explanation": "Cancel (x-2) and (x+1). 3/9 = 1/3 → (x+4)/3.",
             "formatHint": "Enter as (x+4)/3"
         },
         {
@@ -79,8 +79,8 @@
             "answer": "(5x+7)/((x+1)(x+2))",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "LCD = (x+1)(x+2). Multiply each fraction by the missing factor, add numerators.",
-            "explanation": "(5x+7)/((x+1)(x+2)).",
+            "hint": "Find a common denominator: (x+1)(x+2). Adjust each fraction, then add the numerators.",
+            "explanation": "2(x+2) + 3(x+1) over (x+1)(x+2) = (5x+7)/((x+1)(x+2)).",
             "formatHint": "Enter as (5x+7)/((x+1)(x+2))"
         },
         {
@@ -88,8 +88,8 @@
             "answer": "(5x-1)/((x+3)(x-1))",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "LCD = (x+3)(x-1).",
-            "explanation": "(5x-1)/((x+3)(x-1)).",
+            "hint": "Use (x+3)(x-1) as the common denominator. Multiply each fraction by the missing factor and add.",
+            "explanation": "4(x-1) + (x+3) over (x+3)(x-1) = (5x-1)/((x+3)(x-1)).",
             "formatHint": "Enter as (5x-1)/((x+3)(x-1))"
         }
     ]

@@ -7,7 +7,7 @@
             "answer": "3x(2x+5)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Look for the highest common factor (HCF) of 6x² and 15x. The HCF is 3x.",
+            "hint": "Find the largest number and variable power that divides both terms. Take it outside a bracket.",
             "explanation": "3x(2x+5).",
             "formatHint": "Enter as 3x(2x+5)"
         },
@@ -16,7 +16,7 @@
             "answer": "4x(3x-2)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "HCF of 12 and 8 is 4, and both terms have at least one x.",
+            "hint": "Look for the highest common factor of the two terms, including the variable part.",
             "explanation": "4x(3x-2).",
             "formatHint": "Enter as 4x(3x-2)"
         },
@@ -25,7 +25,7 @@
             "answer": "2x(3x^2-5x+2)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "HCF of 6, 10 and 4 is 2. Every term contains at least one x. Take out 2x.",
+            "hint": "Find the highest common factor of all three terms. Divide each term by that factor and write the result inside brackets.",
             "explanation": "2x(3x²−5x+2).",
             "formatHint": "Enter as 2x(3x^2-5x+2)"
         },
@@ -34,7 +34,7 @@
             "answer": "(x+3)(x+5)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Find two numbers that multiply to 15 and add to 8. They are 3 and 5.",
+            "hint": "Find two numbers that multiply to the constant term (+15) and add to the coefficient of x (+8).",
             "explanation": "(x+3)(x+5).",
             "formatHint": "Enter as (x+3)(x+5)"
         },
@@ -43,7 +43,7 @@
             "answer": "(x+7)(x-2)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Multiply to −14 and add to 5. The numbers are 7 and −2.",
+            "hint": "Find two numbers that multiply to −14 and add to +5. One must be positive, the other negative.",
             "explanation": "(x+7)(x-2).",
             "formatHint": "Enter as (x+7)(x-2)"
         },
@@ -52,7 +52,7 @@
             "answer": "(x-4)(x-6)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Multiply to 24 and add to −10. Both numbers must be negative: −4 and −6.",
+            "hint": "Find two numbers that multiply to +24 and add to −10. Both must be negative.",
             "explanation": "(x-4)(x-6).",
             "formatHint": "Enter as (x-4)(x-6)"
         },
@@ -61,7 +61,7 @@
             "answer": "(3x+4)(3x-4)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Difference of two squares: (3x)² − 4².",
+            "hint": "Recognise this as a difference of two squares. Write each term as a square first.",
             "explanation": "(3x+4)(3x-4).",
             "formatHint": "Enter as (3x+4)(3x-4)"
         },
@@ -70,7 +70,7 @@
             "answer": "(2x+3)(x+4)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "2 × 12 = 24. Find two numbers that multiply to 24 and add to 11: 3 and 8. Split 11x into 3x+8x and factorise by grouping.",
+            "hint": "For ax²+bx+c where a≠1, multiply a×c. Find two numbers that multiply to that product and add to b. Split the middle term, then group.",
             "explanation": "(2x+3)(x+4).",
             "formatHint": "Enter as (2x+3)(x+4)"
         },
@@ -79,7 +79,7 @@
             "answer": "(3x-2)(x+5)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "3 × (−10) = −30. Numbers that multiply to −30 and add to 13: −2 and 15. Split and group.",
+            "hint": "Multiply 3 × (−10) = −30. Find two numbers that multiply to −30 and add to +13. Split and group.",
             "explanation": "(3x-2)(x+5).",
             "formatHint": "Enter as (3x-2)(x+5)"
         },
@@ -88,7 +88,7 @@
             "answer": "2(x+3)(x-5)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "First take out the common factor 2, then factorise the remaining quadratic x²−2x−15.",
+            "hint": "Look for a common factor first. Then factorise the remaining quadratic using the grouping method.",
             "explanation": "2(x+3)(x-5).",
             "formatHint": "Enter as 2(x+3)(x-5)"
         }

@@ -7,8 +7,8 @@
             "answer": "(x-3)/(x-2)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor both. Cancel (x+3).",
-            "explanation": "(x-3)/(x-2).",
+            "hint": "Factor both numerator and denominator. Look for a common factor to cancel.",
+            "explanation": "x²−9 = (x−3)(x+3). x²+x−6 = (x+3)(x−2). Cancel (x+3). Result: (x−3)/(x−2).",
             "formatHint": "Enter as (x-3)/(x-2)"
         },
         {
@@ -16,8 +16,8 @@
             "answer": "(2(x+2))/(x-2)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor fully: 2(x-2)(x+2)/(x-2)². Cancel one (x-2).",
-            "explanation": "2(x+2)/(x-2).",
+            "hint": "Factor fully. The numerator has a common factor of 2, then is a difference of squares. The denominator is a perfect square.",
+            "explanation": "2x²−8 = 2(x−2)(x+2). x²−4x+4 = (x−2)². Cancel one (x−2). Result: 2(x+2)/(x−2).",
             "formatHint": "Enter as (2(x+2))/(x-2)"
         },
         {
@@ -25,8 +25,8 @@
             "answer": "(x+3)/(x-3)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor all quadratics. Cancel (x-2) and (x+2).",
-            "explanation": "(x+3)/(x-3).",
+            "hint": "Factor all four expressions. Then multiply and cancel any common factors.",
+            "explanation": "(x−2)(x+2)/((x−3)(x+2)) × (x+3)/(x−2). Cancel (x−2) and (x+2). Result: (x+3)/(x−3).",
             "formatHint": "Enter as (x+3)/(x-3)"
         },
         {
@@ -34,8 +34,8 @@
             "answer": "1",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Flip and multiply. Factor: (x+2)(x+3)/((x-3)(x+3)) × (x-3)/(x+2). Everything cancels.",
-            "explanation": "1.",
+            "hint": "Rewrite as a multiplication by the reciprocal. Then factor each polynomial and cancel any matching factors.",
+            "explanation": "Flip to: (x²+5x+6)/(x²−9) × (x−3)/(x+2). Factor: (x+2)(x+3)/((x−3)(x+3)) × (x−3)/(x+2). Cancel all: result is 1.",
             "formatHint": "Enter as 1"
         },
         {
@@ -43,8 +43,8 @@
             "answer": "(4(x+1))/((x-2)(x+2))",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "LCD = (x-2)(x+2).",
-            "explanation": "4(x+1)/((x-2)(x+2)).",
+            "hint": "Find a common denominator: (x−2)(x+2). Adjust each fraction, add the numerators, and simplify.",
+            "explanation": "3(x+2)/((x−2)(x+2)) + (x−2)/((x−2)(x+2)) = (4x+4)/((x−2)(x+2)) = 4(x+1)/((x−2)(x+2)).",
             "formatHint": "Enter as (4(x+1))/((x-2)(x+2))"
         },
         {
@@ -52,8 +52,8 @@
             "answer": "1/((x-1)(x+1))",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor x²-1 = (x-1)(x+1). Rewrite second fraction over the LCD, subtract.",
-            "explanation": "1/((x-1)(x+1)).",
+            "hint": "Factor x²−1 = (x−1)(x+1). Put the second fraction over this LCD, then subtract.",
+            "explanation": "x/((x−1)(x+1)) − (x−1)/((x−1)(x+1)) = (x − x + 1)/((x−1)(x+1)) = 1/((x−1)(x+1)).",
             "formatHint": "Enter as 1/((x-1)(x+1))"
         },
         {
@@ -61,8 +61,8 @@
             "answer": "(x+3)/(2x+1)",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor numerator (2x-1)(x+3), denominator (2x-1)(2x+1). Cancel (2x-1).",
-            "explanation": "(x+3)/(2x+1).",
+            "hint": "Factor the numerator (a trinomial) and the denominator (difference of squares). Then cancel.",
+            "explanation": "(2x−1)(x+3)/((2x−1)(2x+1)) = (x+3)/(2x+1).",
             "formatHint": "Enter as (x+3)/(2x+1)"
         },
         {
@@ -70,8 +70,8 @@
             "answer": "1",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor: (x+1)(x+2)/((x-2)(x+2)) × (x-2)/(x+1). All cancel.",
-            "explanation": "1.",
+            "hint": "Factor each quadratic. Multiply and cancel any factors that appear both on top and bottom.",
+            "explanation": "(x+1)(x+2)/((x−2)(x+2)) × (x−2)/(x+1) = 1 after cancelling all factors.",
             "formatHint": "Enter as 1"
         },
         {
@@ -79,8 +79,8 @@
             "answer": "(5x-2)/((x-3)(x+3))",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Factor x²-9 = (x-3)(x+3). LCD = (x-3)(x+3).",
-            "explanation": "(5x-2)/((x-3)(x+3)).",
+            "hint": "Factor the third denominator as (x−3)(x+3). Use this as the LCD. Adjust each fraction and add the numerators.",
+            "explanation": "2(x+3)/((x−3)(x+3)) + 3(x−3)/((x−3)(x+3)) + 1/((x−3)(x+3)) = (2x+6+3x−9+1)/((x−3)(x+3)) = (5x−2)/((x−3)(x+3)).",
             "formatHint": "Enter as (5x-2)/((x-3)(x+3))"
         },
         {
@@ -88,8 +88,8 @@
             "answer": "x",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Combine the numerator into one fraction, then divide by the denominator (multiply by reciprocal).",
-            "explanation": "x.",
+            "hint": "Combine the two fractions in the numerator first. Then divide by the denominator (multiply by its reciprocal). Factor where possible.",
+            "explanation": "Numerator: 1/(x−1) + 1/(x+1) = (2x)/((x−1)(x+1)). Denominator: 2/(x²−1) = 2/((x−1)(x+1)). The complex fraction becomes (2x)/((x−1)(x+1)) × ((x−1)(x+1))/2 = x.",
             "formatHint": "Enter as x"
         }
     ]
