@@ -7,90 +7,90 @@
             "answer": "4x+23",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Expand each bracket separately. Multiply 3 into (2x + 5) and −2 into (x − 4). Remember: −2 × −4 = +8. Then collect like terms.",
-            "explanation": "3(2x + 5) − 2(x − 4)<br>= 6x + 15 − 2x + 8<br>= (6x − 2x) + (15 + 8)<br>= <strong>4x + 23</strong><br>✓ Check: let x=1. Left: 3(7)−2(−3)=21+6=27. Right: 4+23=27. ✓",
-            "formatHint": "Enter without spaces, e.g. 4x+23"
+            "hint": "Multiply the number outside each bracket by every term inside. Then group the x‑terms and the constant terms.",
+            "explanation": "3(2x + 5) − 2(x − 4)<br>= 6x + 15 − 2x + 8<br>= (6x − 2x) + (15 + 8)<br>= <strong>4x + 23</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>4(3x − 2) + 3(x + 5) − 2x",
             "answer": "13x+7",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Expand 4(3x − 2) and 3(x + 5) separately. Then collect all x terms together and all number terms together.",
-            "explanation": "4(3x − 2) + 3(x + 5) − 2x<br>= 12x − 8 + 3x + 15 − 2x<br>= (12x + 3x − 2x) + (−8 + 15)<br>= <strong>13x + 7</strong><br>✓ Check: x=1. Left: 4(1)−2+3(6)−2=4−8+3+15−2... 4(3−2)+3(1+5)−2=4+18−2=20. Right: 13+7=20. ✓",
-            "formatHint": "Enter without spaces, e.g. 13x+7"
+            "hint": "Expand every bracket first. Then collect all the variable terms together and all the constant terms together.",
+            "explanation": "4(3x − 2) + 3(x + 5) − 2x<br>= 12x − 8 + 3x + 15 − 2x<br>= (12x + 3x − 2x) + (−8 + 15)<br>= <strong>13x + 7</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>2[3(x + 4) − 5]",
             "answer": "6x+14",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Work from the inside out. Expand the round bracket first: 3(x + 4). Subtract 5 inside the square bracket. Then multiply everything by 2.",
-            "explanation": "2[3(x + 4) − 5]<br>= 2[3x + 12 − 5]<br>= 2[3x + 7]<br>= <strong>6x + 14</strong><br>✓ Check: x=1. Left: 2[3(5)−5]=2[15−5]=2[10]=20. Right: 6+14=20. ✓",
-            "formatHint": "Enter without spaces, e.g. 6x+14"
+            "hint": "Start with the innermost bracket and work outward. Expand the round bracket, simplify inside the square bracket, then multiply by the outside number.",
+            "explanation": "2[3(x + 4) − 5]<br>= 2[3x + 12 − 5]<br>= 2[3x + 7]<br>= <strong>6x + 14</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>5[2(x − 3) + 4(x + 1)]",
             "answer": "30x-10",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Expand both round brackets inside the square bracket first. Collect like terms inside. Then multiply by 5.",
-            "explanation": "5[2(x − 3) + 4(x + 1)]<br>= 5[2x − 6 + 4x + 4]<br>= 5[6x − 2]<br>= <strong>30x − 10</strong><br>✓ Check: x=1. Left: 5[2(−2)+4(2)]=5[−4+8]=5[4]=20. Right: 30−10=20. ✓",
-            "formatHint": "Enter without spaces, e.g. 30x-10"
+            "hint": "Expand each inner round bracket, then combine the like terms inside the square bracket. Finally multiply by the outside number.",
+            "explanation": "5[2(x − 3) + 4(x + 1)]<br>= 5[2x − 6 + 4x + 4]<br>= 5[6x − 2]<br>= <strong>30x − 10</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>3[4(2x − 1) − 2(x + 5)] + 6x",
             "answer": "24x-42",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Expand the round brackets inside the square bracket. Collect like terms inside the square bracket. Multiply by 3. Then add 6x at the end.",
-            "explanation": "3[4(2x − 1) − 2(x + 5)] + 6x<br>= 3[8x − 4 − 2x − 10] + 6x<br>= 3[6x − 14] + 6x<br>= 18x − 42 + 6x<br>= <strong>24x − 42</strong><br>✓ Check: x=2. Left: 3[4(3)−2(7)]+12=3[12−14]+12=3[−2]+12=−6+12=6. Right: 48−42=6. ✓",
-            "formatHint": "Enter without spaces, e.g. 24x-42"
+            "hint": "Expand the round brackets first, then simplify the square bracket. Multiply by the outside number, then add the final term and collect like terms.",
+            "explanation": "3[4(2x − 1) − 2(x + 5)] + 6x<br>= 3[8x − 4 − 2x − 10] + 6x<br>= 3[6x − 14] + 6x<br>= 18x − 42 + 6x<br>= <strong>24x − 42</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>{{F:1,3}}(12x + 9) − {{F:1,4}}(8x − 4)",
             "answer": "2x+4",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Multiply {{F:1,3}} into (12x + 9): divide each term by 3. Multiply {{F:1,4}} into (8x − 4): divide each term by 4. Watch the sign before the second bracket — it changes the signs inside.",
-            "explanation": "{{F:1,3}}(12x + 9) − {{F:1,4}}(8x − 4)<br>= (4x + 3) − (2x − 1)<br>= 4x + 3 − 2x + 1<br>= <strong>2x + 4</strong><br>✓ Check: x=1. Left: {{F:1,3}}(21)−{{F:1,4}}(4)=7−1=6. Right: 2+4=6. ✓",
-            "formatHint": "Enter without spaces, e.g. 2x+4"
+            "hint": "Multiply each term inside the first bracket by the fraction in front of it. Do the same for the second bracket. Be careful with the minus sign before the second part.",
+            "explanation": "{{F:1,3}}(12x + 9) − {{F:1,4}}(8x − 4)<br>= (4x + 3) − (2x − 1)<br>= 4x + 3 − 2x + 1<br>= <strong>2x + 4</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>2[3x − 2(x + 4)] − 3[x − 2(2x − 1)]",
             "answer": "11x-22",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Work on each square bracket separately. Inside the first square bracket: expand 2(x + 4) and subtract from 3x. Inside the second square bracket: expand 2(2x − 1) and subtract from x. Then multiply each by their outside number and collect like terms.",
-            "explanation": "First [ ]: 3x − 2(x + 4) = 3x − 2x − 8 = x − 8.<br>Second [ ]: x − 2(2x − 1) = x − 4x + 2 = −3x + 2.<br><br>2(x − 8) − 3(−3x + 2)<br>= 2x − 16 + 9x − 6<br>= <strong>11x − 22</strong><br>✓ Check: x=2. Left: 2[6−2(6)]−3[2−2(3)]=2[6−12]−3[2−6]=2(−6)−3(−4)=−12+12=0. Right: 22−22=0. ✓",
-            "formatHint": "Enter without spaces, e.g. 11x-22"
+            "hint": "Work on each square bracket separately. Inside each, expand the inner round bracket, simplify, then multiply by the outside number. Finally combine the results from both square brackets.",
+            "explanation": "First [ ]: 3x − 2(x + 4) = 3x − 2x − 8 = x − 8.<br>Second [ ]: x − 2(2x − 1) = x − 4x + 2 = −3x + 2.<br><br>2(x − 8) − 3(−3x + 2)<br>= 2x − 16 + 9x − 6<br>= <strong>11x − 22</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>4(x + 3) − [2(3x − 1) + 3(x − 4)]",
             "answer": "-5x+26",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "First expand and collect the terms inside the square bracket. Then subtract the entire square bracket from 4(x + 3). The minus sign in front of the square bracket flips all signs inside it.",
-            "explanation": "Inside [ ]: 2(3x − 1) + 3(x − 4)<br>= 6x − 2 + 3x − 12<br>= 9x − 14.<br><br>4(x + 3) − [9x − 14]<br>= 4x + 12 − 9x + 14<br>= <strong>−5x + 26</strong><br>✓ Check: x=1. Left: 4(4)−[2(2)+3(−3)]=16−[4−9]=16−(−5)=21. Right: −5+26=21. ✓",
-            "formatHint": "Enter without spaces, e.g. -5x+26"
+            "hint": "Simplify the expression inside the square bracket first. Then subtract that whole result from the expanded form of 4(x + 3). The minus sign will change every sign inside the bracket.",
+            "explanation": "Inside [ ]: 2(3x − 1) + 3(x − 4)<br>= 6x − 2 + 3x − 12<br>= 9x − 14.<br><br>4(x + 3) − [9x − 14]<br>= 4x + 12 − 9x + 14<br>= <strong>−5x + 26</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>{{F:1,3}}(9x + 12) − 2[x − 3(x − 2)]",
             "answer": "7x-8",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Expand the fraction bracket first: divide 9x and 12 each by 3. Then work inside the square bracket: expand 3(x − 2) and subtract from x. Multiply by 2. Finally collect all like terms.",
-            "explanation": "{{F:1,3}}(9x + 12) = 3x + 4.<br><br>Inside [ ]: x − 3(x − 2) = x − 3x + 6 = −2x + 6.<br><br>3x + 4 − 2(−2x + 6)<br>= 3x + 4 + 4x − 12<br>= <strong>7x − 8</strong><br>✓ Check: x=2. Left: {{F:1,3}}(30)−2[2−3(0)]=10−2[2]=10−4=6. Right: 14−8=6. ✓",
-            "formatHint": "Enter without spaces, e.g. 7x-8"
+            "hint": "Multiply the fraction by each term in the first bracket. For the square bracket, expand the inner round bracket, simplify, then multiply by the outside number. Combine all terms afterwards.",
+            "explanation": "{{F:1,3}}(9x + 12) = 3x + 4.<br><br>Inside [ ]: x − 3(x − 2) = x − 3x + 6 = −2x + 6.<br><br>3x + 4 − 2(−2x + 6)<br>= 3x + 4 + 4x − 12<br>= <strong>7x − 8</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         },
         {
             "question": "Expand and simplify:<br><br>3[2(x + 5) − (3x − 4)] − {{F:1,2}}(4x − 8) + 5",
             "answer": "-5x+51",
             "tolerance": 0,
             "type": "algebra",
-            "hint": "Work inside the square bracket first: expand 2(x + 5) and subtract (3x − 4). Collect inside the bracket. Multiply by 3. Expand the fraction bracket. Collect all terms including the +5 at the end.",
-            "explanation": "Inside [ ]: 2(x + 5) − (3x − 4)<br>= 2x + 10 − 3x + 4<br>= −x + 14.<br><br>3(−x + 14) = −3x + 42.<br><br>{{F:1,2}}(4x − 8) = 2x − 4.<br><br>−3x + 42 − (2x − 4) + 5<br>= −3x + 42 − 2x + 4 + 5<br>= <strong>−5x + 51</strong><br>✓ Check: x=1. Left: 3[2(6)−(−1)]−{{F:1,2}}(−4)+5=3[12+1]−(−2)+5=39+2+5=46. Right: −5+51=46. ✓",
-            "formatHint": "Enter without spaces, e.g. -5x+51"
+            "hint": "Start inside the square bracket: expand the round bracket, then subtract the second bracket (flipping its signs). Multiply by the outside number. Handle the fraction term and the constant, then collect all terms.",
+            "explanation": "Inside [ ]: 2(x + 5) − (3x − 4)<br>= 2x + 10 − 3x + 4<br>= −x + 14.<br><br>3(−x + 14) = −3x + 42.<br><br>{{F:1,2}}(4x − 8) = 2x − 4.<br><br>−3x + 42 − (2x − 4) + 5<br>= −3x + 42 − 2x + 4 + 5<br>= <strong>−5x + 51</strong>",
+            "formatHint": "Enter without spaces, e.g. 2x+3"
         }
     ]
 }
