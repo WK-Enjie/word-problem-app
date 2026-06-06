@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet Deployer – Math Adventure!</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b3d5f 0%, #1b6b9a 50%, #0d5280 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Animated background stars */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(2px 2px at 55% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(2px 2px at 75% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(2px 2px at 90% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(2px 2px at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(2px 2px at 65% 85%, rgba(255,255,255,0.5) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            max-width: 750px;
+            width: 100%;
+            background: linear-gradient(160deg, #fffde7 0%, #fff8e1 50%, #fffbf0 100%);
+            border-radius: 32px;
+            box-shadow:
+                0 25px 50px rgba(0,0,0,0.5),
+                0 0 0 3px #cc9c3e,
+                0 0 0 6px rgba(204,156,62,0.3),
+                inset 0 0 30px rgba(255,235,150,0.4);
+            padding: 35px 30px;
+            border: 3px solid #cc9c3e;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Decorative corner stars */
+        .container::before,
+        .container::after {
+            content: '⭐';
+            position: absolute;
+            font-size: 22px;
+            opacity: 0.25;
+        }
+        .container::before { top: 15px; left: 18px; }
+        .container::after  { top: 15px; right: 18px; }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            color: #6b3e1a;
+            text-shadow: 3px 3px 0 #f3cd81, 1px 1px 4px rgba(0,0,0,0.2);
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #8b5a2b;
+            text-shadow: 2px 2px 0 #f3cd81;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        /* ===== FRACTION RENDERING ===== */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1.05em;
+            line-height: 1.1;
+            margin: 0 4px;
+        }
+        .fraction .numerator {
+            border-bottom: 2.5px solid currentColor;
+            padding: 1px 5px 2px;
+            font-weight: bold;
+        }
+        .fraction .denominator {
+            padding: 2px 5px 1px;
+            font-weight: bold;
+        }
+
+        /* Mixed number: whole + fraction */
+        .mixed-number {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            gap: 3px;
+            margin: 0 4px;
+        }
+        .mixed-number .whole {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* ===== POWERS / INDICES ===== */
+        .power-expr {
+            display: inline;
+            vertical-align: baseline;
+        }
+        .power-expr sup {
+            font-size: 0.7em;
+            font-weight: bold;
+            color: #8b2500;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-track {
+            width: 100%;
+            height: 52px;
+            background: linear-gradient(90deg, #d2b48c, #a0714f);
+            border-radius: 26px;
+            margin: 22px 0 8px;
+            position: relative;
+            border: 2.5px solid #6b4c2a;
+            box-shadow:
+                inset 0 4px 10px rgba(0,0,0,0.35),
+                0 3px 8px rgba(0,0,0,0.2);
+            overflow: visible;
+        }
+
+        /* Wave fill inside bar */
+        .progress-fill {
+            height: 100%;
+            border-radius: 26px;
+            background: linear-gradient(90deg, #4db8ff, #0077cc);
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: absolute;
+            left: 0; top: 0;
+            opacity: 0.55;
+        }
+
+        /* Milestone dots */
+        .milestone {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffe566;
+            border: 2px solid #8b6508;
+            transition: background 0.4s;
+        }
+        .milestone.reached {
+            background: #ffd700;
+            box-shadow: 0 0 6px #ffd700;
+        }
+
+        .ship-icon {
+            position: absolute;
+            top: -38px;
+            font-size: 40px;
+            transition: left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.5));
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .treasure-icon {
+            position: absolute;
+            right: 10px;
+            top: -26px;
+            font-size: 32px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ===== QUESTION COUNTER & SCORE ===== */
+        .hud {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #5a3e1a;
+            margin: 6px 0 14px;
+            padding: 0 5px;
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #5a3000;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 1rem;
+        }
+
+        /* ===== QUESTION BOX ===== */
+        .question-box {
+            background: rgba(255,255,255,0.92);
+            border: 2.5px dashed #b8860b;
+            border-radius: 22px;
+            padding: 22px 25px;
+            margin: 0 0 18px;
+            font-size: 1.2rem;
+            color: #2e1e0f;
+            line-height: 2;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .question-box .q-number {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: #daa520;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 2px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* ===== INPUT & BUTTONS ===== */
+        .answer-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        input[type="text"] {
+            font-size: 1.2rem;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 2.5px solid #b8860b;
+            background: #fffef0;
+            width: 200px;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+        input[type="text"]:focus {
+            border-color: #daa520;
+            box-shadow: 0 0 0 3px rgba(218,165,32,0.3);
+        }
+        input[type="text"].correct-flash  { border-color: #2e7d32; box-shadow: 0 0 0 3px rgba(46,125,50,0.3); }
+        input[type="text"].wrong-flash    { border-color: #c62828; box-shadow: 0 0 0 3px rgba(198,40,40,0.3); }
+
+        .btn {
+            background: linear-gradient(180deg, #f0b429 0%, #daa520 100%);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 13px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #8b6508, 0 7px 10px rgba(0,0,0,0.2);
+            transition: all 0.1s;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+        }
+        .btn:hover:not(:disabled) {
+            background: linear-gradient(180deg, #f5c040 0%, #e8b520 100%);
+        }
+        .btn:active:not(:disabled) {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #8b6508;
+        }
+        .btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 3px 0 #8b6508;
+        }
+
+        .btn-skip {
+            background: linear-gradient(180deg, #b0bec5, #90a4ae);
+            box-shadow: 0 5px 0 #546e7a;
+            font-size: 0.95rem;
+            padding: 11px 20px;
+        }
+        .btn-skip:hover:not(:disabled) {
+            background: linear-gradient(180deg, #cfd8dc, #b0bec5);
+        }
+        .btn-skip:active:not(:disabled) {
+            box-shadow: 0 1px 0 #546e7a;
+        }
+
+        .restart-btn {
+            background: linear-gradient(180deg, #a0694a, #8b5a2b);
+            box-shadow: 0 5px 0 #5a3512;
+            color: #ffd700;
+            margin-top: 10px;
+        }
+        .restart-btn:hover:not(:disabled) {
+            background: linear-gradient(180deg, #b5795a, #9b6a3b);
+        }
+        .restart-btn:active:not(:disabled) {
+            box-shadow: 0 1px 0 #5a3512;
+        }
+
+        /* ===== HINT BOX ===== */
+        .hint-box {
+            background: rgba(255,249,196,0.95);
+            border: 2px solid #f9a825;
+            border-radius: 14px;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            color: #5d4037;
+            margin: 0 0 12px;
+            display: none;
+            text-align: left;
+            line-height: 1.6;
+        }
+        .hint-box.visible { display: block; }
+        .hint-toggle {
+            background: none;
+            border: 1.5px solid #f9a825;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 0.88rem;
+            cursor: pointer;
+            color: #7b5800;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: background 0.15s;
+        }
+        .hint-toggle:hover { background: rgba(249,168,37,0.12); }
+
+        /* ===== FEEDBACK MESSAGE ===== */
+        .message {
+            font-size: 1.15rem;
+            min-height: 38px;
+            margin: 6px 0;
+            font-weight: bold;
+            border-radius: 12px;
+            padding: 6px 12px;
+            transition: all 0.3s;
+        }
+        .message.correct { color: #1b5e20; background: rgba(76,175,80,0.12); }
+        .message.wrong   { color: #b71c1c; background: rgba(244,67,54,0.10); }
+        .message.info    { color: #4a3000; }
+
+        /* ===== SKIP TALLY ===== */
+        .skip-tally {
+            font-size: 0.85rem;
+            color: #7a5c30;
+            margin-top: 4px;
+        }
+
+        /* ===== FORMAT HELPER ===== */
+        .format-hint {
+            font-size: 0.82rem;
+            color: #8a6a3a;
+            margin: 0 0 10px;
+            font-style: italic;
+        }
+
+        /* ===== RESULT SCREEN ===== */
+        .result-box {
+            background: linear-gradient(135deg, #fff9e6, #fff3c4);
+            border: 3px solid #daa520;
+            border-radius: 22px;
+            padding: 28px;
+            margin: 10px 0;
+        }
+        .result-box h2 { font-size: 1.8rem; margin-bottom: 14px; }
+        .stars-display { font-size: 2rem; letter-spacing: 4px; margin: 8px 0; }
+        .result-grade {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #5a3e1a;
+        }
+        .result-breakdown {
+            font-size: 0.95rem;
+            color: #6b4c2a;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .result-breakdown .rb-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px dashed rgba(180,140,70,0.4);
+        }
+        .result-breakdown .rb-row:last-child { border-bottom: none; }
+
+        /* ===== CODE SCREEN ===== */
+        .code-screen-inner { padding: 10px 0; }
+        .code-screen-inner p.subtitle {
+            font-size: 1.1rem;
+            margin: 14px 0 20px;
+            color: #5a3e1a;
+        }
+        .demo-codes {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7a5c30;
+            background: rgba(255,255,255,0.5);
+            border-radius: 14px;
+            padding: 12px 16px;
+            border: 1px dashed #c9a050;
+            line-height: 1.8;
+        }
+        .demo-codes strong { color: #5a3512; }
+        .code-chip {
+            display: inline-block;
+            background: #daa520;
+            color: white;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            margin: 2px 3px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .code-chip:hover { background: #c8960e; }
+
+        /* ===== LOADING ===== */
+        #loadingOverlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255,251,230,0.88);
+            border-radius: 32px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            backdrop-filter: blur(2px);
+        }
+        .loading-spinner {
+            width: 48px; height: 48px;
+            border: 5px solid #f3cd81;
+            border-top: 5px solid #8b5a2b;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin-bottom: 14px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { font-size: 1.1rem; font-weight: bold; color: #5a3512; }
+        .loading-sub  { font-size: 0.9rem; color: #7a5c30; margin-top: 6px; }
+
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.success { background: linear-gradient(135deg, #2e7d32, #43a047); }
+        .toast.error   { background: linear-gradient(135deg, #c62828, #e53935); }
+        .toast.info    { background: linear-gradient(135deg, #1565c0, #1976d2); }
+
+        /* ===== CONFETTI CANVAS ===== */
+        #confettiCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 500px) {
+            .container { padding: 22px 14px; border-radius: 22px; }
+            h1 { font-size: 1.55rem; }
+            .question-box { font-size: 1.05rem; padding: 18px 14px; }
+            input[type="text"] { width: 160px; font-size: 1.05rem; }
+            .btn { font-size: 1rem; padding: 11px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Confetti canvas (shared, fixed) -->
+<canvas id="confettiCanvas"></canvas>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<div class="container" id="app">
+
+    <!-- ===== CODE ENTRY SCREEN ===== -->
+    <div id="codeScreen" class="code-screen-inner">
+        <h1>🏴‍☠️ Math Adventure!</h1>
+        <p class="subtitle">Enter your worksheet code to begin your quest:</p>
+
+        <input type="text" id="codeInput" placeholder="e.g. FRAC1" autocomplete="off"
+               style="font-size:1.3rem; width:220px; margin-bottom:14px;">
+        <br>
+        <button class="btn" id="activateBtn">⚓ Set Sail!</button>
+
+        <p id="codeError" style="color:#c62828; margin-top:12px; font-weight:bold; min-height:24px;"></p>
+
+        <div class="demo-codes">
+            <strong>📋 Available Worksheet Codes:</strong><br>
+            <span class="code-chip" onclick="useCode('FRAC1')">FRAC1</span>
+            <span class="code-chip" onclick="useCode('RATE1')">RATE1</span>
+            <span class="code-chip" onclick="useCode('TIME1')">TIME1</span>
+            <span class="code-chip" onclick="useCode('ALGE1')">ALGE1</span>
+            <br><br>
+            <em style="font-size:0.82rem;">Click a chip to auto-fill, then press Set Sail!</em>
+        </div>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div id="gameScreen" style="display:none;">
+
+        <!-- Title -->
+        <h1 id="gameTitle">Adventure</h1>
+
+        <!-- Progress track -->
+        <div class="progress-track" id="progressContainer">
+            <div class="progress-fill" id="progressFill" style="width:0%"></div>
+            <!-- Milestone dots inserted by JS -->
+            <span class="ship-icon" id="shipIcon">⛵</span>
+            <span class="treasure-icon">💎</span>
+        </div>
+
+        <!-- HUD -->
+        <div class="hud">
+            <span id="questionCounter">Question 1 / 5</span>
+            <span class="score-badge" id="scoreDisplay">⭐ 0 / 5</span>
+        </div>
+
+        <!-- Question box -->
+        <div class="question-box" id="questionBox">
+            <span class="q-number" id="qLabel">Q1</span>
+            <span id="questionText"></span>
+        </div>
+
+        <!-- Format hint -->
+        <p class="format-hint" id="formatHint"></p>
+
+        <!-- Hint toggle + box -->
+        <button class="hint-toggle" id="hintToggle" style="display:none;">💡 Show Hint</button>
+        <div class="hint-box" id="hintBox"></div>
+
+        <!-- Answer row -->
+        <div class="answer-row">
+            <input type="text" id="answerInput" placeholder="Your answer" autocomplete="off">
+            <button class="btn" id="submitBtn">⚓ Check</button>
+            <button class="btn btn-skip" id="skipBtn">⏭ Skip</button>
+        </div>
+
+        <!-- Feedback -->
+        <div class="message info" id="feedback"></div>
+
+        <!-- Skip tally -->
+        <p class="skip-tally" id="skipTally"></p>
+
+        <!-- Restart button (shown at end) -->
+        <button class="btn restart-btn" id="restartBtn" style="display:none;">🔄 Try Another Worksheet</button>
+    </div>
+
+    <!-- ===== LOADING OVERLAY ===== -->
+    <div id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">⚓ Fetching your worksheet…</p>
+        <p class="loading-sub" id="loadingUrl"></p>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    /* =========================================================
+       CONFIGURATION — update these for your GitHub repo
+    ========================================================= */
+    const GITHUB_USER     = "your-username";       // ← your GitHub username
+    const GITHUB_REPO     = "worksheet-repo";      // ← your repo name
+    const WORKSHEET_PATH  = "worksheets";          // ← folder inside repo
+    const BRANCH          = "main";                // ← branch name
+
+    /* =========================================================
+       DOM REFERENCES
+    ========================================================= */
+    const codeScreen      = document.getElementById('codeScreen');
+    const gameScreen      = document.getElementById('gameScreen');
+    const loadingOverlay  = document.getElementById('loadingOverlay');
+    const loadingUrl      = document.getElementById('loadingUrl');
+    const codeInput       = document.getElementById('codeInput');
+    const activateBtn     = document.getElementById('activateBtn');
+    const codeError       = document.getElementById('codeError');
+    const gameTitle       = document.getElementById('gameTitle');
+    const questionText    = document.getElementById('questionText');
+    const qLabel          = document.getElementById('qLabel');
+    const questionBox     = document.getElementById('questionBox');
+    const answerInput     = document.getElementById('answerInput');
+    const submitBtn       = document.getElementById('submitBtn');
+    const skipBtn         = document.getElementById('skipBtn');
+    const feedback        = document.getElementById('feedback');
+    const shipIcon        = document.getElementById('shipIcon');
+    const progressFill    = document.getElementById('progressFill');
+    const progressContainer = document.getElementById('progressContainer');
+    const questionCounter = document.getElementById('questionCounter');
+    const scoreDisplay    = document.getElementById('scoreDisplay');
+    const restartBtn      = document.getElementById('restartBtn');
+    const formatHint      = document.getElementById('formatHint');
+    const hintToggle      = document.getElementById('hintToggle');
+    const hintBox         = document.getElementById('hintBox');
+    const skipTally       = document.getElementById('skipTally');
+    const toast           = document.getElementById('toast');
+    const confettiCanvas  = document.getElementById('confettiCanvas');
+
+    /* =========================================================
+       GAME STATE
+    ========================================================= */
+    let problems          = [];
+    let totalQ            = 0;
+    let currentIndex      = 0;
+    let score             = 0;
+    let skipped           = 0;
+    let wrongAttempts     = 0;   // wrong attempts on current question
+    let gameActive        = false;
+    let hintVisible       = false;
+    let confettiAnim      = null;
+
+    /* =========================================================
+       MATH RENDERING HELPERS
+    ========================================================= */
+
+    /**
+     * Converts template tags in question strings to HTML.
+     *
+     * Supported tags:
+     *   {{F:3,4}}        → proper fraction 3/4
+     *   {{M:2,3,4}}      → mixed number 2 and 3/4
+     *   {{P:x,3}}        → x³  (base,exponent)
+     *   {{P:2x+1,2}}     → (2x+1)²
+     *   {{SQ:9}}         → √9
+     *   <b>…</b>         → passed through as bold
+     */
+    function renderMath(text) {
+        if (!text) return '';
+
+        // Fractions: {{F:num,den}}
+        text = text.replace(/\{\{F:(-?\d+),(-?\d+)\}\}/g,
+            (_, n, d) =>
+            `<span class="fraction">` +
+            `<span class="numerator">${n}</span>` +
+            `<span class="denominator">${d}</span>` +
+            `</span>`
+        );
+
+        // Mixed numbers: {{M:whole,num,den}}
+        text = text.replace(/\{\{M:(-?\d+),(-?\d+),(-?\d+)\}\}/g,
+            (_, w, n, d) =>
+            `<span class="mixed-number">` +
+            `<span class="whole">${w}</span>` +
+            `<span class="fraction">` +
+            `<span class="numerator">${n}</span>` +
+            `<span class="denominator">${d}</span>` +
+            `</span></span>`
+        );
+
+        // Powers/indices: {{P:base,exp}}
+        text = text.replace(/\{\{P:([^,]+),([^}]+)\}\}/g,
+            (_, base, exp) => {
+                // If base contains operators or spaces, wrap in brackets
+                const needsBrackets = /[+\-*/\s]/.test(base.trim()) && base.trim().length > 1;
+                const baseStr = needsBrackets ? `(${base})` : base;
+                return `<span class="power-expr">${baseStr}<sup>${exp}</sup></span>`;
+            }
+        );
+
+        // Square root: {{SQ:expr}}
+        text = text.replace(/\{\{SQ:([^}]+)\}\}/g,
+            (_, expr) => `<span style="font-size:1.1em;">√${expr}</span>`
+        );
+
+        // Legacy fraction format {{num,den}} for backwards compatibility
+        text = text.replace(/\{\{(\d+),(\d+)\}\}/g,
+            (_, n, d) =>
+            `<span class="fraction">` +
+            `<span class="numerator">${n}</span>` +
+            `<span class="denominator">${d}</span>` +
+            `</span>`
+        );
+
+        return text;
+    }
+
+    /* =========================================================
+       ANSWER PARSING
+       Accepts: decimals, fractions (3/4), mixed numbers (2 3/4),
+                time (H:MM or HH:MM), percentages (75%), integers
+    ========================================================= */
+    function parseAnswer(raw) {
+        if (raw === null || raw === undefined) return NaN;
+        let s = String(raw).trim().replace(/\s+/g, ' ');
+        if (!s) return NaN;
+
+        // Percentage: "75%"  → 0.75
+        if (s.endsWith('%')) {
+            const pct = parseFloat(s);
+            return isNaN(pct) ? NaN : pct / 100;
+        }
+
+        // Time: "2:30"  → decimal hours
+        if (/^\d{1,2}:\d{2}$/.test(s)) {
+            const [h, m] = s.split(':').map(Number);
+            return h + m / 60;
+        }
+
+        // Mixed number: "2 3/4"
+        const mixedMatch = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);
+        if (mixedMatch) {
+            const w = parseInt(mixedMatch[1], 10);
+            const n = parseInt(mixedMatch[2], 10);
+            const d = parseInt(mixedMatch[3], 10);
+            if (d === 0) return NaN;
+            return w < 0 ? w - n / d : w + n / d;
+        }
+
+        // Fraction: "3/4"
+        if (s.includes('/')) {
+            const parts = s.split('/');
+            if (parts.length !== 2) return NaN;
+            const n = parseFloat(parts[0]);
+            const d = parseFloat(parts[1]);
+            if (isNaN(n) || isNaN(d) || d === 0) return NaN;
+            return n / d;
+        }
+
+        return parseFloat(s);
+    }
+
+    /* =========================================================
+       ANSWER COMPARISON
+    ========================================================= */
+    function answersMatch(userRaw, correctRaw, tolerance) {
+        const tol = (tolerance !== undefined && tolerance !== null)
+            ? parseFloat(tolerance) : 0.001;
+
+        // Try numeric comparison first
+        const userVal    = parseAnswer(userRaw);
+        const correctVal = parseAnswer(correctRaw);
+
+        if (!isNaN(userVal) && !isNaN(correctVal)) {
+            return Math.abs(userVal - correctVal) < tol;
+        }
+
+        // Fall back to string comparison (lowercased, trimmed)
+        // Useful for word answers or algebra expressions
+        const u = String(userRaw).trim().toLowerCase().replace(/\s+/g, '');
+        const c = String(correctRaw).trim().toLowerCase().replace(/\s+/g, '');
+        return u === c;
+    }
+
+    /* =========================================================
+       MILESTONE DOTS
+    ========================================================= */
+    function buildMilestones(n) {
+        // Remove old dots
+        progressContainer.querySelectorAll('.milestone').forEach(el => el.remove());
+        if (n <= 1) return;
+        for (let i = 1; i < n; i++) {
+            const pct = (i / n) * 100;
+            const dot = document.createElement('span');
+            dot.className = 'milestone';
+            dot.id = `ms-${i}`;
+            dot.style.left = `calc(${pct}% - 7px)`;
+            progressContainer.appendChild(dot);
+        }
+    }
+
+    function updateMilestones(reachedIndex) {
+        for (let i = 1; i < totalQ; i++) {
+            const dot = document.getElementById(`ms-${i}`);
+            if (dot) {
+                dot.classList.toggle('reached', i <= reachedIndex);
+            }
+        }
+    }
+
+    /* =========================================================
+       SHIP / PROGRESS UPDATE
+    ========================================================= */
+    function updateProgress() {
+        if (!gameActive || totalQ === 0) return;
+        const pct = (currentIndex / totalQ) * 100;
+        const clampedPct = Math.min(pct, 96);          // stop just before treasure
+        progressFill.style.width = pct + '%';
+        shipIcon.style.left = `calc(${clampedPct}% - 20px)`;
+        updateMilestones(currentIndex);
+    }
+
+    /* =========================================================
+       TOAST NOTIFICATION
+    ========================================================= */
+    let toastTimer = null;
+    function showToast(msg, type = 'info', duration = 2200) {
+        toast.textContent = msg;
+        toast.className = `toast ${type} show`;
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+            toast.className = 'toast';
+        }, duration);
+    }
+
+    /* =========================================================
+       CONFETTI
+    ========================================================= */
+    function launchConfetti() {
+        const ctx = confettiCanvas.getContext('2d');
+        confettiCanvas.width  = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+
+        const colours = ['#ffd700','#ff6b6b','#4ecdc4','#45b7d1','#f9a825','#81c784','#f48fb1'];
+        const pieces  = Array.from({ length: 120 }, () => ({
+            x: Math.random() * confettiCanvas.width,
+            y: Math.random() * -confettiCanvas.height,
+            w: 8 + Math.random() * 8,
+            h: 4 + Math.random() * 6,
+            color: colours[Math.floor(Math.random() * colours.length)],
+            rotation: Math.random() * Math.PI * 2,
+            speed: 2 + Math.random() * 4,
+            wobble: Math.random() * 0.15,
+            wobbleDir: Math.random() > 0.5 ? 1 : -1,
+        }));
+
+        let frame = 0;
+        function draw() {
+            ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            pieces.forEach(p => {
+                p.y += p.speed;
+                p.rotation += p.wobble * p.wobbleDir;
+                p.x += Math.sin(frame * 0.02 + p.wobble) * 0.8;
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                ctx.restore();
+            });
+            frame++;
+
+            // Remove pieces that fell off screen
+            const alive = pieces.filter(p => p.y < confettiCanvas.height + 20);
+            if (alive.length > 0 && frame < 300) {
+                confettiAnim = requestAnimationFrame(draw);
+            } else {
+                ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                confettiAnim = null;
+            }
+        }
+        if (confettiAnim) cancelAnimationFrame(confettiAnim);
+        confettiAnim = requestAnimationFrame(draw);
+    }
+
+    /* =========================================================
+       FETCH WORKSHEET FROM GITHUB
+    ========================================================= */
+    async function loadWorksheet(code) {
+        const upperCode = code.toUpperCase().trim();
+        if (!upperCode) return;
+
+        const url =
+            `https://raw.githubusercontent.com/` +
+            `${GITHUB_USER}/${GITHUB_REPO}/${BRANCH}/` +
+            `${WORKSHEET_PATH}/${upperCode}.json`;
+
+        loadingOverlay.style.display = 'flex';
+        loadingUrl.textContent = url;
+        codeError.textContent  = '';
+
+        try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(
+                    `Worksheet "${upperCode}" not found.\n` +
+                    `(HTTP ${response.status}) — double-check the code or repo settings.`
+                );
+            }
+
+            const ws = await response.json();
+
+            // ── Validate structure ──
+            if (!ws.title)                   throw new Error('Worksheet missing "title" field.');
+            if (!Array.isArray(ws.problems)) throw new Error('Worksheet missing "problems" array.');
+            if (ws.problems.length === 0)    throw new Error('Worksheet has zero problems.');
+
+            ws.problems.forEach((p, i) => {
+                if (!p.question) throw new Error(`Problem ${i + 1} missing "question".`);
+                if (p.answer === undefined || p.answer === null)
+                    throw new Error(`Problem ${i + 1} missing "answer".`);
+            });
+
+            // ── Initialise game ──
+            problems      = ws.problems;
+            totalQ        = problems.length;
+            currentIndex  = 0;
+            score         = 0;
+            skipped       = 0;
+            gameActive    = true;
+
+            codeScreen.style.display = 'none';
+            gameScreen.style.display = 'block';
+            gameTitle.innerHTML = `${ws.themeEmoji || '⛵'} ${ws.title}`;
+
+            restartBtn.style.display = 'none';
+            buildMilestones(totalQ);
+            updateProgress();
+            displayQuestion();
+
+        } catch (err) {
+            codeError.innerHTML = `☠️ ${err.message.replace(/\n/g, '<br>')}`;
+            console.error('[WorksheetLoader]', err);
+        } finally {
+            loadingOverlay.style.display = 'none';
+        }
+    }
+
+    /* =========================================================
+       DISPLAY QUESTION
+    ========================================================= */
+    function displayQuestion() {
+        if (!gameActive || currentIndex >= totalQ) {
+            finishGame();
+            return;
+        }
+
+        const q = problems[currentIndex];
+        wrongAttempts = 0;
+        hintVisible   = false;
+
+        // Question label and text
+        qLabel.textContent         = `Q${currentIndex + 1}`;
+        questionText.innerHTML     = renderMath(q.question);
+
+        // Format hint (from worksheet or auto-detected)
+        formatHint.textContent     = q.formatHint || autoFormatHint(q);
+
+        // Hint button
+        if (q.hint) {
+            hintToggle.style.display = 'inline-block';
+            hintBox.innerHTML        = renderMath('💡 ' + q.hint);
+            hintBox.classList.remove('visible');
+            hintToggle.textContent   = '💡 Show Hint';
+        } else {
+            hintToggle.style.display = 'none';
+            hintBox.classList.remove('visible');
+        }
+
+        // HUD
+        questionCounter.textContent = `Question ${currentIndex + 1} / ${totalQ}`;
+        scoreDisplay.textContent    = `⭐ ${score} / ${totalQ}`;
+        skipTally.textContent       = skipped > 0 ? `Skipped so far: ${skipped}` : '';
+
+        // Reset input & feedback
+        feedback.textContent       = '';
+        feedback.className         = 'message info';
+        answerInput.value          = '';
+        answerInput.disabled       = false;
+        answerInput.className      = '';
+        submitBtn.disabled         = false;
+        skipBtn.disabled           = false;
+
+        answerInput.focus();
+        updateProgress();
+    }
+
+    /** Auto-detect a helpful format hint based on the answer */
+    function autoFormatHint(q) {
+        const ans = String(q.answer);
+        if (q.type === 'fraction' || ans.includes('/'))
+            return 'Enter as a fraction (e.g. 3/4) or decimal';
+        if (q.type === 'mixed')
+            return 'Enter as a mixed number (e.g. 2 3/4) or improper fraction';
+        if (q.type === 'time' || ans.includes(':'))
+            return 'Enter time as H:MM (e.g. 2:30)';
+        if (q.type === 'percentage' || ans.endsWith('%'))
+            return 'Enter as a percentage (e.g. 75%)';
+        if (q.type === 'algebra')
+            return 'Enter the simplified expression or value';
+        return '';
+    }
+
+    /* =========================================================
+       CHECK ANSWER
+    ========================================================= */
+    function checkAnswer() {
+        if (!gameActive) return;
+
+        const userInput = answerInput.value.trim();
+        if (!userInput) {
+            feedback.innerHTML   = '🦜 Please write your answer first!';
+            feedback.className   = 'message wrong';
+            answerInput.focus();
+            return;
+        }
+
+        const q       = problems[currentIndex];
+        const correct = answersMatch(userInput, q.answer, q.tolerance);
+
+        if (correct) {
+            score++;
+            feedback.innerHTML = `✅ Correct! ${q.explanation ? renderMath(q.explanation) : '🎉'}`;
+            feedback.className = 'message correct';
+            answerInput.classList.add('correct-flash');
+            scoreDisplay.textContent = `⭐ ${score} / ${totalQ}`;
+
+            if (score === totalQ) {
+                showToast('🏆 Perfect Score!', 'success', 3000);
+            } else {
+                showToast('✅ Nice work!', 'success', 1500);
+            }
+
+            setTimeout(() => {
+                currentIndex++;
+                displayQuestion();
+            }, 1400);
+
+        } else {
+            wrongAttempts++;
+            feedback.className = 'message wrong';
+
+            if (wrongAttempts === 1) {
+                feedback.innerHTML = '❌ Not quite — try again!';
+                if (q.hint && !hintVisible) {
+                    feedback.innerHTML += ' (Hint available 👇)';
+                }
+            } else if (wrongAttempts === 2) {
+                feedback.innerHTML = '🤔 Still not right. Check your working!';
+                // Auto-show hint on second wrong attempt
+                if (q.hint) showHint();
+            } else {
+                feedback.innerHTML =
+                    `💡 The answer is <strong>${q.answer}</strong>. ` +
+                    `${q.explanation ? renderMath(q.explanation) : ''}`;
+                answerInput.classList.add('wrong-flash');
+
+                setTimeout(() => {
+                    currentIndex++;
+                    displayQuestion();
+                }, 2800);
+                return;
+            }
+
+            answerInput.classList.add('wrong-flash');
+            setTimeout(() => {
+                answerInput.classList.remove('wrong-flash');
+                answerInput.value = '';
+                answerInput.focus();
+            }, 600);
+
+            showToast('❌ Try again!', 'error', 1200);
+        }
+    }
+
+    /* =========================================================
+       SKIP QUESTION
+    ========================================================= */
+    function skipQuestion() {
+        if (!gameActive) return;
+        const q = problems[currentIndex];
+        skipped++;
+        feedback.innerHTML = `⏭ Skipped. The answer was <strong>${q.answer}</strong>. ` +
+            (q.explanation ? renderMath(q.explanation) : '');
+        feedback.className = 'message info';
+        skipBtn.disabled   = true;
+        submitBtn.disabled = true;
+        skipTally.textContent = `Skipped so far: ${skipped}`;
+
+        setTimeout(() => {
+            currentIndex++;
+            displayQuestion();
+        }, 2000);
+    }
+
+    /* =========================================================
+       HINT
+    ========================================================= */
+    function showHint() {
+        hintVisible = true;
+        hintBox.classList.add('visible');
+        hintToggle.textContent = '💡 Hide Hint';
+    }
+
+    function toggleHint() {
+        if (hintVisible) {
+            hintVisible = false;
+            hintBox.classList.remove('visible');
+            hintToggle.textContent = '💡 Show Hint';
+        } else {
+            showHint();
+        }
+    }
+
+    /* =========================================================
+       FINISH GAME
+    ========================================================= */
+    function finishGame() {
+        gameActive = false;
+        updateProgress();
+
+        // Move ship to treasure
+        shipIcon.style.left = 'calc(100% - 48px)';
+        progressFill.style.width = '100%';
+        updateMilestones(totalQ);
+
+        const pct     = totalQ > 0 ? Math.round((score / totalQ) * 100) : 0;
+        const grade   = getGrade(pct);
+        const stars   = getStars(pct);
+
+        questionText.innerHTML = `
+            <div class="result-box">
+                <h2>🏆 Treasure Found!</h2>
+                <div class="stars-display">${stars}</div>
+                <div class="result-grade">${grade.label}</div>
+                <div style="font-size:1.3rem; margin:8px 0; color:#5a3512;">
+                    You scored <strong>${score}</strong> out of <strong>${totalQ}</strong>
+                    &nbsp;(${pct}%)
+                </div>
+                <div class="result-breakdown">
+                    <div class="rb-row"><span>✅ Correct</span><span>${score}</span></div>
+                    <div class="rb-row"><span>⏭ Skipped</span><span>${skipped}</span></div>
+                    <div class="rb-row">
+                        <span>❌ Incorrect</span>
+                        <span>${totalQ - score - skipped}</span>
+                    </div>
+                </div>
+                <p style="margin-top:12px; font-size:1rem; color:#5a3512;">${grade.message}</p>
+            </div>
+        `;
+
+        qLabel.textContent         = '';
+        formatHint.textContent     = '';
+        hintToggle.style.display   = 'none';
+        hintBox.classList.remove('visible');
+        answerInput.style.display  = 'none';
+        submitBtn.style.display    = 'none';
+        skipBtn.style.display      = 'none';
+        feedback.textContent       = '';
+        restartBtn.style.display   = 'inline-block';
+
+        if (pct >= 80) launchConfetti();
+    }
+
+    function getGrade(pct) {
+        if (pct === 100) return { label: '🌟 Perfect Score!',    message: 'Outstanding — you nailed every question!' };
+        if (pct >= 80)   return { label: '🥇 Excellent!',        message: 'Fantastic effort — keep it up, champion!' };
+        if (pct >= 60)   return { label: '🥈 Good Job!',         message: 'Solid work! A little more practice and you\'ll be perfect.' };
+        if (pct >= 40)   return { label: '🥉 Keep Practising!',  message: 'Good try — review the tricky ones and try again.' };
+        return                  { label: '📚 More Practice Needed', message: 'Don\'t give up! Every expert was once a beginner.' };
+    }
+
+    function getStars(pct) {
+        if (pct === 100) return '⭐⭐⭐⭐⭐';
+        if (pct >= 80)   return '⭐⭐⭐⭐';
+        if (pct >= 60)   return '⭐⭐⭐';
+        if (pct >= 40)   return '⭐⭐';
+        return                  '⭐';
+    }
+
+    /* =========================================================
+       RESTART
+    ========================================================= */
+    function restart() {
+        gameActive              = false;
+        gameScreen.style.display = 'none';
+        codeScreen.style.display = 'block';
+        answerInput.style.display = '';
+        submitBtn.style.display   = '';
+        skipBtn.style.display     = '';
+        codeInput.value           = '';
+        codeError.textContent     = '';
+        progressFill.style.width  = '0%';
+        shipIcon.style.left       = '5%';
+
+        if (confettiAnim) {
+            cancelAnimationFrame(confettiAnim);
+            confettiCanvas.getContext('2d')
+                .clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        }
+        codeInput.focus();
+    }
+
+    /* =========================================================
+       EVENT LISTENERS
+    ========================================================= */
+    activateBtn.addEventListener('click', () => {
+        loadWorksheet(codeInput.value.trim());
+    });
+    codeInput.addEventListener('keypress', e => {
+        if (e.key === 'Enter') loadWorksheet(codeInput.value.trim());
+    });
+    submitBtn.addEventListener('click', checkAnswer);
+    answerInput.addEventListener('keypress', e => {
+        if (e.key === 'Enter') checkAnswer();
+    });
+    skipBtn.addEventListener('click', skipQuestion);
+    restartBtn.addEventListener('click', restart);
+    hintToggle.addEventListener('click', toggleHint);
+
+    /* =========================================================
+       GLOBAL HELPER — code chip click from HTML
+    ========================================================= */
+    window.useCode = function (code) {
+        codeInput.value = code;
+        codeInput.focus();
+    };
+
+    /* =========================================================
+       INIT
+    ========================================================= */
+    codeInput.focus();
+
+})();
+</script>
+</body>
+</html>
