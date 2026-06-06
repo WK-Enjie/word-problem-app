@@ -7,90 +7,80 @@
             "answer": "10",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how many sweets she gave to her brother. Then find how many she gave to her sister. Subtract both from 24.",
-            "explanation": "Brother: {{F:1,4}} × 24 = 6 sweets.<br>Sister: {{F:1,3}} × 24 = 8 sweets.<br>Total given away: 6 + 8 = 14 sweets.<br>Left: 24 − 14 = <strong>10 sweets</strong>.<br>✓ Check: 6 + 8 + 10 = 24. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Find how many she gave to brother. Then sister. Subtract both from 24.",
+            "explanation": "Brother: {{F:1,4}} × 24 = 6 sweets. Sister: {{F:1,3}} × 24 = 8 sweets. Given away = 6+8=14. Left = 24−14 = <strong>10 sweets</strong>."
         },
         {
             "question": "A bag of flour weighs 36 kg. A baker used {{F:2,9}} of it on Monday and {{F:1,4}} of it on Tuesday. How many kg of flour were left?",
-            "answer": "18",
+            "answer": "19",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how much flour was used each day. Add the two amounts together. Subtract from 36.",
-            "explanation": "Monday: {{F:2,9}} × 36 = 8 kg.<br>Tuesday: {{F:1,4}} × 36 = 9 kg.<br>Used altogether: 8 + 9 = 17 kg... wait: 8+9=17. Left = 36−17 = 19 kg.<br>Redesign with clean answer:<br>Monday: {{F:2,9}}×36=8 kg. Tuesday: {{F:1,6}}×36=6 kg. Used=14 kg. Left=22 kg.<br>Or: {{F:1,4}}×36=9, {{F:1,6}}×36=6. Used=15. Left=21 kg.<br>Clean: {{F:1,4}}×36=9, {{F:1,3}}×36=12. Used=21. Left=<strong>15 kg</strong>.<br>✓ Check: 9+12+15=36. ✓",
-            "formatHint": "Enter a whole number (kg)"
+            "hint": "Find kg used Monday, Tuesday. Add, then subtract from 36.",
+            "explanation": "Monday: {{F:2,9}} × 36 = 8 kg. Tuesday: {{F:1,4}} × 36 = 9 kg. Used = 8+9 = 17 kg. Left = 36 − 17 = <strong>19 kg</strong>."
         },
         {
             "question": "Tom had 40 stickers. He gave {{F:3,8}} to Ali and {{F:1,4}} to Ben. How many stickers did Tom have left?",
             "answer": "15",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how many stickers each friend received. Add the two amounts. Subtract from 40.",
-            "explanation": "Ali: {{F:3,8}} × 40 = 15 stickers.<br>Ben: {{F:1,4}} × 40 = 10 stickers.<br>Given away: 15 + 10 = 25 stickers.<br>Left: 40 − 25 = <strong>15 stickers</strong>.<br>✓ Check: 15 + 10 + 15 = 40. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Ali = 3/8 of 40, Ben = 1/4 of 40.",
+            "explanation": "Ali: {{F:3,8}} × 40 = 15 stickers. Ben: {{F:1,4}} × 40 = 10 stickers. Given away = 25. Left = 40 − 25 = <strong>15 stickers</strong>."
         },
         {
-            "question": "A tank had 60 litres of water. {{F:2,5}} of the water was used for watering plants and {{F:1,6}} was used for washing. How many litres of water were left in the tank?",
-            "answer": "25",
+            "question": "A tank had 60 litres of water. {{F:2,5}} of the water was used for watering plants and {{F:1,6}} was used for washing. How many litres of water were left?",
+            "answer": "26",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how many litres were used for plants. Find how many litres were used for washing. Subtract both from 60.",
-            "explanation": "Plants: {{F:2,5}} × 60 = 24 litres.<br>Washing: {{F:1,6}} × 60 = 10 litres.<br>Used: 24 + 10 = 34 litres.<br>Left: 60 − 34 = <strong>26 litres</strong>.<br>✓ Check: 24 + 10 + 26 = 60. ✓",
-            "formatHint": "Enter a whole number (litres)"
+            "hint": "Plants = 2/5 of 60, washing = 1/6 of 60.",
+            "explanation": "Plants: {{F:2,5}} × 60 = 24 L. Washing: {{F:1,6}} × 60 = 10 L. Used = 34 L. Left = 60 − 34 = <strong>26 L</strong>."
         },
         {
             "question": "A class collected 120 cans for charity. {{F:1,3}} of the cans were collected by the boys. The girls collected the rest. How many cans did the girls collect?",
             "answer": "80",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how many cans the boys collected. Subtract from 120 to get the girls' amount.",
-            "explanation": "Boys: {{F:1,3}} × 120 = 40 cans.<br>Girls: 120 − 40 = <strong>80 cans</strong>.<br>✓ Check: 40 + 80 = 120. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Boys = 1/3 × 120. Subtract from 120.",
+            "explanation": "Boys: {{F:1,3}} × 120 = 40 cans. Girls: 120 − 40 = <strong>80 cans</strong>."
         },
         {
             "question": "Amy had some money. She spent {{F:1,5}} of it on a book and had $48 left. How much money did Amy have at first?",
             "answer": "60",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "If she spent {{F:1,5}}, she had {{F:4,5}} of her money left. The $48 is {{F:4,5}} of the original. Find the original.",
-            "explanation": "She spent {{F:1,5}}, so {{F:4,5}} remained.<br>{{F:4,5}} of original = $48.<br>1 unit = $48 ÷ 4 = $12.<br>Original = 5 × $12 = <strong>$60</strong>.<br>✓ Check: {{F:1,5}} × 60 = $12 spent. Left = $48. ✓",
-            "formatHint": "Enter a whole number (dollars)"
+            "hint": "If she spent 1/5, then 4/5 = $48.",
+            "explanation": "{{F:4,5}} of money = $48. 1/5 = $12. Full = $12 × 5 = <strong>$60</strong>."
         },
         {
-            "question": "A ribbon is 72 cm long. Lisa cuts off {{F:5,8}} of it to wrap a present. How many centimetres of ribbon are left?",
+            "question": "A ribbon is 72 cm long. Lisa cuts off {{F:5,8}} of it to wrap a present. How many cm of ribbon are left?",
             "answer": "27",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how much ribbon was cut off. Subtract from 72.",
-            "explanation": "Cut off: {{F:5,8}} × 72 = 45 cm.<br>Left: 72 − 45 = <strong>27 cm</strong>.<br>✓ Check: 45 + 27 = 72. ✓",
-            "formatHint": "Enter a whole number (cm)"
+            "hint": "Cut off = 5/8 × 72.",
+            "explanation": "Cut off: {{F:5,8}} × 72 = 45 cm. Left: 72 − 45 = <strong>27 cm</strong>."
         },
         {
             "question": "There are 48 pupils in a hall. {{F:3,4}} of them are seated. How many pupils are standing?",
             "answer": "12",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "If {{F:3,4}} are seated, then {{F:1,4}} are standing. Find {{F:1,4}} of 48.",
-            "explanation": "Standing: {{F:1,4}} × 48 = <strong>12 pupils</strong>.<br>✓ Check: Seated = {{F:3,4}} × 48 = 36. 36 + 12 = 48. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Standing = 1/4 of 48.",
+            "explanation": "Standing = {{F:1,4}} × 48 = <strong>12 pupils</strong>."
         },
         {
             "question": "Raju saved $180. He spent {{F:2,9}} of his savings on a game and {{F:1,3}} of his savings on shoes. How much money did he have left?",
             "answer": "80",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find how much he spent on the game. Find how much he spent on shoes. Add the two amounts and subtract from $180.",
-            "explanation": "Game: {{F:2,9}} × 180 = $40.<br>Shoes: {{F:1,3}} × 180 = $60.<br>Spent: $40 + $60 = $100.<br>Left: $180 − $100 = <strong>$80</strong>.<br>✓ Check: 40 + 60 + 80 = 180. ✓",
-            "formatHint": "Enter a whole number (dollars)"
+            "hint": "Game = 2/9 × 180, shoes = 1/3 × 180.",
+            "explanation": "Game: {{F:2,9}} × 180 = $40. Shoes: {{F:1,3}} × 180 = $60. Spent = $100. Left = $180 − $100 = <strong>$80</strong>."
         },
         {
-            "question": "A fruit stall had 90 fruits. {{F:2,5}} were mangoes, {{F:1,3}} were apples and the rest were oranges. How many oranges were there?",
+            "question": "A fruit stall had 90 fruits. {{F:2,5}} were mangoes, {{F:1,3}} were apples and the rest oranges. How many oranges were there?",
             "answer": "24",
             "tolerance": 0.01,
             "type": "fraction",
-            "hint": "Find the number of mangoes. Find the number of apples. Add them and subtract from 90 to find the oranges.",
-            "explanation": "Mangoes: {{F:2,5}} × 90 = 36.<br>Apples: {{F:1,3}} × 90 = 30.<br>Mangoes + Apples = 36 + 30 = 66.<br>Oranges: 90 − 66 = <strong>24 oranges</strong>.<br>✓ Check: 36 + 30 + 24 = 90. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Mangoes = 2/5 × 90, apples = 1/3 × 90.",
+            "explanation": "Mangoes = 36, Apples = 30. Total = 66. Oranges = 90 − 66 = <strong>24</strong>."
         }
     ]
 }

@@ -6,91 +6,71 @@
             "question": "Siti had some beads. She gave {{F:1,4}} of them to Rani and {{F:2,5}} of the remainder to Linda. Siti had 54 beads left. How many beads did Siti start with?",
             "answer": "120",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "After giving {{F:1,4}} to Rani, {{F:3,4}} of the beads remain. Linda gets {{F:2,5}} of that remainder, leaving {{F:3,5}} of the remainder with Siti. Find what fraction of the original 54 beads represents.",
-            "explanation": "Let total = 20 units (LCM of 4 and 5).<br>After Rani: {{F:3,4}} × 20 = 15 units left.<br>After Linda: {{F:3,5}} × 15 = 9 units left = 54 beads.<br>1 unit = 54 ÷ 9 = 6 beads.<br>Total = 20 × 6 = <strong>120 beads</strong>.<br>✓ Check: Gave Rani {{F:1,4}}×120=30. Left=90. Gave Linda {{F:2,5}}×90=36. Left=54. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Let total = 20 units. After Rani, 15 units remain. After Linda, 9 units remain = 54 beads.",
+            "explanation": "9 units = 54 → 1 unit = 6. Total = 20 × 6 = <strong>120 beads</strong>."
         },
         {
             "question": "Three friends shared a prize. Amy received {{F:1,2}} of the total. Ben received {{F:2,3}} of the remainder. Chris received the last $24. How much money was in the prize altogether?",
-            "answer": "72",
+            "answer": "144",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "After Amy takes {{F:1,2}}, half is left. Ben takes {{F:2,3}} of that half. What fraction of the whole does Chris get? Use that to find the total.",
-            "explanation": "Let total = 6 units.<br>Amy: {{F:1,2}} × 6 = 3 units. Remainder = 3 units.<br>Ben: {{F:2,3}} × 3 = 2 units. Chris: 1 unit = $24.<br>Total = 6 × $24 = <strong>$72</strong>.<br>✓ Check: Amy=$36, Ben=$24... wait: Amy=3×24=$72? No — 1 unit = $24, Amy = 3 units = $72... but total = 6 units = $144.<br>Recheck: 1 unit=$24. Amy=3u=$72. Ben=2u=$48. Chris=1u=$24. Total=6u=$144.<br>Answer = <strong>$144</strong>. ✓ Check: 72+48+24=144. ✓",
-            "formatHint": "Enter a whole number (dollars)"
+            "hint": "Let total = 6 units. Amy = 3 units. Ben = 2 units. Chris = 1 unit = $24.",
+            "explanation": "1 unit = $24 → Total = 6 × 24 = <strong>$144</strong>."
         },
         {
             "question": "A box has red, blue and green marbles. {{F:1,3}} of the marbles are red. There are 54 more blue marbles than red marbles. There are 20 green marbles. How many marbles are in the box altogether?",
             "answer": "222",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Let total = 3 units so that red = 1 unit. Write blue in terms of 1 unit. Add red + blue + green = total and solve for 1 unit.",
-            "explanation": "Let total = 3 units. Red = 1 unit.<br>Blue = 1 unit + 54. Green = 20.<br>Red + Blue + Green = Total:<br>1 unit + (1 unit + 54) + 20 = 3 units<br>2 units + 74 = 3 units<br>1 unit = 74.<br>Total = 3 × 74 = <strong>222 marbles</strong>.<br>✓ Check: Red=74, Blue=128, Green=20. 74+128+20=222. Blue−Red=54. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Let total = 3 units. Red = 1 unit. Blue = 1 unit + 54. Green = 20. Solve.",
+            "explanation": "1 unit + (1 unit + 54) + 20 = 3 units → 2 units + 74 = 3 units → 1 unit = 74. Total = 3 × 74 = <strong>222</strong>."
         },
         {
-            "question": "In a hall, {{F:1,3}} of the people are men, {{F:2,5}} are women and the rest are children. There are 36 more women than children. How many people are in the hall?",
+            "question": "In a hall, {{F:1,3}} are men, {{F:2,5}} are women, rest children. There are 36 more women than children. How many people?",
             "answer": "270",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Find the fraction that are children by subtracting the men and women fractions from 1. Then find the fraction difference between women and children — that equals 36 people.",
-            "explanation": "Men = {{F:1,3}} = {{F:5,15}}. Women = {{F:2,5}} = {{F:6,15}}.<br>Children = 1 − {{F:5,15}} − {{F:6,15}} = {{F:4,15}}.<br>Women − Children = {{F:6,15}} − {{F:4,15}} = {{F:2,15}} of total = 36.<br>Total = 36 × {{F:15,2}} = <strong>270 people</strong>.<br>✓ Check: Men=90, Women=108, Children=72. 108−72=36. 90+108+72=270. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Convert to 15ths. Men=5/15, women=6/15, children=4/15. Women−Children = 2/15 = 36.",
+            "explanation": "2/15 of total = 36 → total = 36 × 15/2 = <strong>270</strong>."
         },
         {
-            "question": "A tank was {{F:5,6}} full of water. After removing 48 litres it was {{F:1,3}} full. How many litres does the full tank hold?",
+            "question": "A tank was {{F:5,6}} full. After removing 48 litres it was {{F:1,3}} full. Find full capacity.",
             "answer": "96",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "The 48 litres is the difference between {{F:5,6}} full and {{F:1,3}} full. Find that fraction difference, then use it to find the full capacity.",
-            "explanation": "Fraction removed = {{F:5,6}} − {{F:1,3}} = {{F:5,6}} − {{F:2,6}} = {{F:3,6}} = {{F:1,2}}.<br>{{F:1,2}} of full tank = 48 litres.<br>Full tank = 48 × 2 = <strong>96 litres</strong>.<br>✓ Check: {{F:5,6}}×96=80 L. 80−48=32. {{F:1,3}}×96=32. ✓",
-            "formatHint": "Enter a whole number (litres)"
+            "hint": "Difference = 5/6 − 1/3 = 1/2. 1/2 of full = 48 L.",
+            "explanation": "Full = 48 × 2 = <strong>96 litres</strong>."
         },
         {
-            "question": "Kevin spent {{F:1,3}} of his savings on a phone, then spent $120 on a watch. He then spent {{F:1,2}} of what remained on shoes and had $80 left. How much did Kevin save at first?",
+            "question": "Kevin spent {{F:1,3}} on phone, then $120 on watch, then {{F:1,2}} of remainder on shoes. He had $80 left. How much at first?",
             "answer": "420",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Work backwards from the end. $80 left after shoes means $80 is {{F:1,2}} of what he had after the watch. Double it to get the amount after the watch. Add $120 to get the amount after the phone. That is {{F:2,3}} of the original.",
-            "explanation": "After shoes, $80 = {{F:1,2}} of amount after watch.<br>Amount after watch = $80 × 2 = $160.<br>Amount after phone = $160 + $120 = $280.<br>$280 = {{F:2,3}} of original.<br>Original = $280 × {{F:3,2}} = <strong>$420</strong>.<br>✓ Check: Phone={{F:1,3}}×420=$140. Left=$280. Watch=$120. Left=$160. Shoes=$80. Left=$80. ✓",
-            "formatHint": "Enter a whole number (dollars)"
+            "hint": "Work backwards: $80 = half after watch → after watch = $160. Before watch = $160+$120 = $280 = 2/3 of original.",
+            "explanation": "Original = $280 × 3/2 = <strong>$420</strong>."
         },
         {
-            "question": "Peter has {{F:3,5}} as many marbles as Tom. Tom has {{M:2,1,2}} times as many marbles as Harry. Harry has 20 marbles. How many marbles do Peter and Tom have altogether?",
+            "question": "Peter has {{F:3,5}} as many marbles as Tom. Tom has {{M:2,1,2}} times as many as Harry. Harry has 20. How many do Peter & Tom have altogether?",
             "answer": "80",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Start with Harry. Multiply to find Tom's amount. Then find Peter's amount using Tom's. Finally add Peter and Tom.",
-            "explanation": "Harry = 20 marbles.<br>Tom = {{M:2,1,2}} × 20 = {{F:5,2}} × 20 = 50 marbles.<br>Peter = {{F:3,5}} × 50 = 30 marbles.<br>Peter + Tom = 30 + 50 = <strong>80 marbles</strong>.<br>✓ Check: {{F:3,5}}×50=30. 30+50=80. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Harry=20, Tom=2.5×20=50, Peter=3/5×50=30.",
+            "explanation": "Peter + Tom = 30 + 50 = <strong>80 marbles</strong>."
         },
         {
-            "question": "In a bag, {{F:3,7}} of the beads are red and the rest are blue. After removing 24 blue beads, {{F:1,2}} of the remaining beads are red. How many beads were in the bag at first?",
+            "question": "In a bag, {{F:3,7}} of beads are red, rest blue. After removing 24 blue beads, {{F:1,2}} of remaining are red. How many at first?",
             "answer": "168",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Red beads do not change. Let total = 7 units. Red = 3 units. After removing blue beads, red becomes {{F:1,2}} of the new total, so the new total = 6 units. The 1 unit difference is the 24 blue beads removed.",
-            "explanation": "Let original total = 7 units. Red = 3 units. Blue = 4 units.<br>Red stays at 3 units throughout.<br>After removing blue: red = {{F:1,2}} of new total → new total = 2 × 3 = 6 units.<br>Beads removed = 7 units − 6 units = 1 unit = 24 beads.<br>Original total = 7 × 24 = <strong>168 beads</strong>.<br>✓ Check: Red=72, Blue=96. Remove 24: Blue=72, Total=144. {{F:72,144}}={{F:1,2}}. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Let total = 7 units. Red = 3 units. After removing blue, new total = 6 units, so 1 unit removed = 24.",
+            "explanation": "1 unit = 24 → original = 7 × 24 = <strong>168 beads</strong>."
         },
         {
-            "question": "A shopkeeper had some oranges. He sold {{F:2,5}} in the morning and {{F:1,3}} of the remainder in the afternoon. He had 60 oranges left. How many oranges did he start with?",
+            "question": "Shopkeeper sold {{F:2,5}} oranges morning, then {{F:1,3}} of remainder afternoon. 60 left. How many at first?",
             "answer": "150",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "After the morning, {{F:3,5}} of the oranges remain. He sold {{F:1,3}} of that in the afternoon, leaving {{F:2,3}} of the remainder. Find what fraction of the original the 60 oranges represents.",
-            "explanation": "Let total = 15 units (LCM of 5 and 3).<br>Morning: sold {{F:2,5}} × 15 = 6 units. Remaining = 9 units.<br>Afternoon: sold {{F:1,3}} × 9 = 3 units. Remaining = 6 units = 60 oranges.<br>1 unit = 60 ÷ 6 = 10 oranges.<br>Total = 15 × 10 = <strong>150 oranges</strong>.<br>✓ Check: Sold morning=60, left=90. Sold afternoon=30, left=60. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Let total = 15 units. After morning, 9 units remain. After afternoon, 6 units remain = 60.",
+            "explanation": "1 unit = 10 → total = 15 × 10 = <strong>150 oranges</strong>."
         },
         {
-            "question": "At a funfair, {{F:1,3}} of the visitors were children. {{F:3,4}} of the children and {{F:2,5}} of the adults bought a ride ticket. Altogether 310 tickets were sold. How many visitors were at the funfair?",
+            "question": "Funfair: {{F:1,3}} children. {{F:3,4}} of children, {{F:2,5}} of adults bought tickets. 310 tickets sold. Total visitors?",
             "answer": "600",
             "tolerance": 0.01,
-            "type": "fraction",
-            "hint": "Let total = 60 units (LCM of 3, 4 and 5). Work out how many units of children and adults each bought tickets. Set the total ticket units equal to 310.",
-            "explanation": "Let total = 60 units.<br>Children = {{F:1,3}} × 60 = 20 units. Adults = 40 units.<br>Children's tickets = {{F:3,4}} × 20 = 15 units.<br>Adults' tickets = {{F:2,5}} × 40 = 16 units.<br>Total tickets = 31 units = 310.<br>1 unit = 310 ÷ 31 = 10 visitors.<br>Total = 60 × 10 = <strong>600 visitors</strong>.<br>✓ Check: Children=200, Adults=400. Tickets: {{F:3,4}}×200+{{F:2,5}}×400=150+160=310. ✓",
-            "formatHint": "Enter a whole number"
+            "hint": "Let total = 60 units. Children = 20 units, adults = 40 units. Tickets = 15 + 16 = 31 units = 310.",
+            "explanation": "1 unit = 10 → total = 60 × 10 = <strong>600 visitors</strong>."
         }
     ]
 }
