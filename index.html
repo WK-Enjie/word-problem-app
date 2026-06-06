@@ -107,7 +107,7 @@
 
 <script>
 (function(){
-    // ===================== CONFIG – CHANGE THESE =====================
+    // ===================== CONFIG =====================
     const GITHUB_USER = "WK-Enjie";
     const GITHUB_REPO = "word-problem-app";
     const WORKSHEET_PATH = "worksheets";
@@ -149,9 +149,10 @@
         return parseFloat(s);
     }
 
+    // ⚡ FIXED: now uses <= tol so tolerance=0 works for exact numeric matches
     function answersMatch(user, correct, tol=0.001) {
         const u = parseAnswer(user), c = parseAnswer(correct);
-        if (!isNaN(u) && !isNaN(c)) return Math.abs(u-c) < tol;
+        if (!isNaN(u) && !isNaN(c)) return Math.abs(u-c) <= tol;
         return String(user).trim().toLowerCase().replace(/\s+/g,'') === String(correct).trim().toLowerCase().replace(/\s+/g,'');
     }
 
