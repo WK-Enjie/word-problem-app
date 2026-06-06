@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Problem App – Fractions Adventure</title>
+    <title>Word Problem App – Math Adventure</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -14,177 +14,52 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            background-attachment: fixed;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image:
-                radial-gradient(2px 2px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
-                radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
-                radial-gradient(2px 2px at 55% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
-                radial-gradient(2px 2px at 75% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
-                radial-gradient(2px 2px at 90% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
-                radial-gradient(2px 2px at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
-                radial-gradient(2px 2px at 65% 85%, rgba(255,255,255,0.5) 0%, transparent 100%);
-            pointer-events: none;
-            z-index: 0;
         }
         .container {
             max-width: 750px;
             width: 100%;
-            background: linear-gradient(160deg, #fffde7 0%, #fff8e1 50%, #fffbf0 100%);
+            background: linear-gradient(160deg, #fffde7, #fff8e1);
             border-radius: 32px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 3px #cc9c3e, 0 0 0 6px rgba(204,156,62,0.3), inset 0 0 30px rgba(255,235,150,0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             padding: 35px 30px;
             border: 3px solid #cc9c3e;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            z-index: 1;
         }
-        .container::before, .container::after {
-            content: '⭐';
-            position: absolute;
-            font-size: 22px;
-            opacity: 0.25;
-        }
-        .container::before { top: 15px; left: 18px; }
-        .container::after  { top: 15px; right: 18px; }
-        h1 { color: #6b3e1a; text-shadow: 3px 3px 0 #f3cd81; font-family: 'Trebuchet MS', sans-serif; font-size: 2rem; margin-bottom: 6px; }
-        h2 { color: #8b5a2b; text-shadow: 2px 2px 0 #f3cd81; font-family: 'Trebuchet MS', sans-serif; font-size: 1.5rem; }
-        .fraction {
-            display: inline-flex;
-            flex-direction: column;
-            vertical-align: middle;
-            text-align: center;
-            font-size: 1.05em;
-            line-height: 1.1;
-            margin: 0 4px;
-        }
-        .fraction .numerator { border-bottom: 2.5px solid currentColor; padding: 1px 5px 2px; font-weight: bold; }
-        .fraction .denominator { padding: 2px 5px 1px; font-weight: bold; }
+        h1 { color: #6b3e1a; text-shadow: 3px 3px 0 #f3cd81; }
+        .fraction { display: inline-flex; flex-direction: column; vertical-align: middle; font-size: 1.05em; margin: 0 4px; }
+        .fraction .numerator { border-bottom: 2.5px solid currentColor; padding: 1px 5px; font-weight: bold; }
+        .fraction .denominator { padding: 2px 5px; font-weight: bold; }
         .mixed-number { display: inline-flex; align-items: center; gap: 3px; margin: 0 4px; }
-        .mixed-number .whole { font-weight: bold; font-size: 1.1em; }
-        .progress-track {
-            width: 100%;
-            height: 52px;
-            background: linear-gradient(90deg, #d2b48c, #a0714f);
-            border-radius: 26px;
-            margin: 22px 0 8px;
-            position: relative;
-            border: 2.5px solid #6b4c2a;
-            box-shadow: inset 0 4px 10px rgba(0,0,0,0.35), 0 3px 8px rgba(0,0,0,0.2);
-        }
-        .progress-fill {
-            height: 100%;
-            border-radius: 26px;
-            background: linear-gradient(90deg, #4db8ff, #0077cc);
-            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: absolute; left: 0; top: 0;
-            opacity: 0.55;
-        }
-        .milestone {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 14px; height: 14px; border-radius: 50%;
-            background: #ffe566; border: 2px solid #8b6508;
-        }
-        .milestone.reached { background: #ffd700; box-shadow: 0 0 6px #ffd700; }
-        .ship-icon {
-            position: absolute; top: -38px; font-size: 40px;
-            transition: left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
-            filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.5)); z-index: 3; pointer-events: none;
-        }
-        .treasure-icon {
-            position: absolute; right: 10px; top: -26px; font-size: 32px;
-            animation: bounce 1.5s infinite;
-        }
-        @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-        .hud { display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1rem; color: #5a3e1a; margin: 6px 0 14px; padding: 0 5px; }
-        .score-badge { background: linear-gradient(135deg, #ffd700, #ffaa00); color: #5a3000; border-radius: 20px; padding: 4px 14px; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.2); font-size: 1rem; }
-        .question-box {
-            background: rgba(255,255,255,0.92);
-            border: 2.5px dashed #b8860b;
-            border-radius: 22px;
-            padding: 22px 25px;
-            margin: 0 0 18px;
-            font-size: 1.2rem;
-            color: #2e1e0f;
-            line-height: 2;
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
-            position: relative;
-        }
-        .question-box .q-number {
-            position: absolute; top: -14px; left: 20px;
-            background: #daa520; color: white; font-size: 0.85rem; font-weight: bold;
-            padding: 2px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .answer-row { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-        input[type="text"] {
-            font-size: 1.2rem; padding: 12px 20px;
-            border-radius: 50px; border: 2.5px solid #b8860b; background: #fffef0;
-            width: 200px; text-align: center; outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit;
-        }
-        input[type="text"]:focus { border-color: #daa520; box-shadow: 0 0 0 3px rgba(218,165,32,0.3); }
-        .btn {
-            background: linear-gradient(180deg, #f0b429 0%, #daa520 100%);
-            border: none; color: #fff; font-weight: bold; font-size: 1.1rem;
-            padding: 13px 28px; border-radius: 50px; cursor: pointer;
-            box-shadow: 0 5px 0 #8b6508, 0 7px 10px rgba(0,0,0,0.2);
-            transition: all 0.1s; font-family: inherit;
-        }
-        .btn:hover:not(:disabled) { background: linear-gradient(180deg, #f5c040 0%, #e8b520 100%); }
-        .btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 #8b6508; }
-        .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: 0 3px 0 #8b6508; }
-        .btn-skip { background: linear-gradient(180deg, #b0bec5, #90a4ae); box-shadow: 0 5px 0 #546e7a; font-size: 0.95rem; padding: 11px 20px; }
-        .restart-btn { background: linear-gradient(180deg, #a0694a, #8b5a2b); box-shadow: 0 5px 0 #5a3512; color: #ffd700; margin-top: 10px; }
-        .message { font-size: 1.15rem; min-height: 38px; margin: 6px 0; font-weight: bold; border-radius: 12px; padding: 6px 12px; }
-        .message.correct { color: #1b5e20; background: rgba(76,175,80,0.12); }
-        .message.wrong   { color: #b71c1c; background: rgba(244,67,54,0.10); }
-        .message.info    { color: #4a3000; }
-        .hint-box { background: rgba(255,249,196,0.95); border: 2px solid #f9a825; border-radius: 14px; padding: 10px 16px; font-size: 0.95rem; color: #5d4037; margin: 0 0 12px; display: none; text-align: left; line-height: 1.6; }
-        .hint-box.visible { display: block; }
-        .hint-toggle { background: none; border: 1.5px solid #f9a825; border-radius: 20px; padding: 5px 14px; font-size: 0.88rem; cursor: pointer; color: #7b5800; font-weight: bold; margin-bottom: 10px; }
-        .format-hint { font-size: 0.82rem; color: #8a6a3a; margin: 0 0 10px; font-style: italic; }
-        .result-box { background: linear-gradient(135deg, #fff9e6, #fff3c4); border: 3px solid #daa520; border-radius: 22px; padding: 28px; margin: 10px 0; }
-        .stars-display { font-size: 2rem; letter-spacing: 4px; margin: 8px 0; }
-        .result-grade { font-size: 1.25rem; font-weight: bold; margin: 10px 0; color: #5a3e1a; }
-        .toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px);
-            background: #333; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 1rem;
-            font-weight: bold; z-index: 999; opacity: 0;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-        .toast.success { background: linear-gradient(135deg, #2e7d32, #43a047); }
-        .toast.error   { background: linear-gradient(135deg, #c62828, #e53935); }
-        @media (max-width: 500px) {
-            .container { padding: 22px 14px; border-radius: 22px; }
-            h1 { font-size: 1.55rem; }
-            .question-box { font-size: 1.05rem; padding: 18px 14px; }
-            input[type="text"] { width: 160px; font-size: 1.05rem; }
-            .btn { font-size: 1rem; padding: 11px 22px; }
-        }
+        .mixed-number .whole { font-weight: bold; }
+        .power-expr sup { font-size: 0.7em; font-weight: bold; color: #8b2500; vertical-align: super; }
+        .progress-track { width:100%; height:52px; background:linear-gradient(90deg,#d2b48c,#a0714f); border-radius:26px; margin:22px 0 8px; position:relative; border:2.5px solid #6b4c2a; }
+        .progress-fill { height:100%; border-radius:26px; background:linear-gradient(90deg,#4db8ff,#0077cc); transition:width 0.8s; position:absolute; left:0; opacity:0.55; }
+        .ship-icon { position:absolute; top:-38px; font-size:40px; transition:left 0.9s; z-index:3; }
+        .treasure-icon { position:absolute; right:10px; top:-26px; font-size:32px; animation: bounce 1.5s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+        .question-box { background:rgba(255,255,255,0.92); border:2.5px dashed #b8860b; border-radius:22px; padding:22px 25px; margin:0 0 18px; font-size:1.2rem; color:#2e1e0f; line-height:2; min-height:90px; display:flex; align-items:center; justify-content:center; position:relative; }
+        .question-box .q-number { position:absolute; top:-14px; left:20px; background:#daa520; color:white; font-size:0.85rem; font-weight:bold; padding:2px 12px; border-radius:20px; }
+        .answer-row { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+        input[type="text"] { font-size:1.2rem; padding:12px 20px; border-radius:50px; border:2.5px solid #b8860b; background:#fffef0; width:200px; text-align:center; outline:none; }
+        .btn { background:linear-gradient(180deg,#f0b429,#daa520); border:none; color:#fff; font-weight:bold; font-size:1.1rem; padding:13px 28px; border-radius:50px; cursor:pointer; box-shadow:0 5px 0 #8b6508; }
+        .btn-skip { background:linear-gradient(180deg,#b0bec5,#90a4ae); box-shadow:0 5px 0 #546e7a; }
+        .restart-btn { background:linear-gradient(180deg,#a0694a,#8b5a2b); box-shadow:0 5px 0 #5a3512; color:#ffd700; margin-top:10px; }
+        .message { font-size:1.15rem; min-height:38px; margin:6px 0; font-weight:bold; }
+        .hint-box { background:rgba(255,249,196,0.95); border:2px solid #f9a825; border-radius:14px; padding:10px 16px; display:none; text-align:left; }
+        .hint-toggle { background:none; border:1.5px solid #f9a825; border-radius:20px; padding:5px 14px; cursor:pointer; color:#7b5800; font-weight:bold; margin-bottom:10px; }
+        .toast { position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(80px); background:#333; color:#fff; padding:12px 24px; border-radius:30px; z-index:999; opacity:0; transition:all 0.4s; }
+        .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+        .code-chip { display:inline-block; background:#daa520; color:white; border-radius:20px; padding:4px 12px; font-weight:bold; font-size:0.9rem; margin:3px; cursor:pointer; }
     </style>
 </head>
 <body>
-
 <div class="toast" id="toast"></div>
-
 <div class="container" id="app">
-    <!-- Code entry -->
     <div id="codeScreen">
         <h1>🏴‍☠️ Word Problem Adventure</h1>
         <p style="font-size:1.2rem; margin:20px 0;">Enter worksheet code:</p>
-        <input type="text" id="codeInput" placeholder="e.g. FRAC1" autocomplete="off"
-               style="font-size:1.3rem; width:220px; margin-bottom:14px;">
+        <input type="text" id="codeInput" placeholder="e.g. FRAC1" autocomplete="off" style="font-size:1.3rem; width:220px; margin-bottom:14px;">
         <br>
         <button class="btn" id="activateBtn">⚓ Set Sail!</button>
         <p id="codeError" style="color:#c62828; margin-top:12px; font-weight:bold; min-height:24px;"></p>
@@ -193,11 +68,14 @@
             <span class="code-chip" onclick="useCode('FRAC1')">FRAC1</span>
             <span class="code-chip" onclick="useCode('FRAC2')">FRAC2</span>
             <span class="code-chip" onclick="useCode('RATE1')">RATE1</span>
+            <span class="code-chip" onclick="useCode('RATE2')">RATE2</span>
+            <span class="code-chip" onclick="useCode('RATE3')">RATE3</span>
+            <span class="code-chip" onclick="useCode('ALGF1')">ALGF1</span>
+            <span class="code-chip" onclick="useCode('ALGF2')">ALGF2</span>
+            <span class="code-chip" onclick="useCode('ALGF3')">ALGF3</span>
             <br><small>Click a code, then press Set Sail!</small>
         </div>
     </div>
-
-    <!-- Game screen -->
     <div id="gameScreen" style="display:none;">
         <h1 id="gameTitle"></h1>
         <div class="progress-track" id="progressContainer">
@@ -225,95 +103,56 @@
         <p class="skip-tally" id="skipTally"></p>
         <button class="btn restart-btn" id="restartBtn" style="display:none;">🔄 Try Another</button>
     </div>
-
-    <div id="loadingOverlay" style="display:none; position:absolute; top:0;left:0; width:100%;height:100%;
-         background:rgba(255,251,230,0.9); border-radius:32px; flex-direction:column;
-         justify-content:center; align-items:center; z-index:20;">
-        <div style="width:48px;height:48px; border:5px solid #f3cd81; border-top-color:#8b5a2b;
-             border-radius:50%; animation:spin 0.9s linear infinite; margin-bottom:14px;"></div>
-        <p style="font-weight:bold;">Fetching worksheet...</p>
-    </div>
 </div>
 
 <script>
-(function() {
-    // ========== 🔧 CONFIGURATION – SET THESE TO YOUR GITHUB DETAILS ==========
-    const GITHUB_USER = "WK-Enjie";            // ← case-sensitive
-    const GITHUB_REPO = "word-problem-app";    // ← exact repo name
-    const WORKSHEET_PATH = "worksheets";       // ← folder name (already correct)
-    const BRANCH = "main";                     // ← branch (already correct)
+(function(){
+    // ===================== CONFIG – CHANGE THESE =====================
+    const GITHUB_USER = "WK-Enjie";
+    const GITHUB_REPO = "word-problem-app";
+    const WORKSHEET_PATH = "worksheets";
+    const BRANCH = "main";
 
-    // ========== GAME STATE ==========
-    let problems = [], totalQ = 0, currentIndex = 0, score = 0, skipped = 0;
-    let gameActive = false, hintVisible = false, wrongAttempts = 0;
+    // ===================== GAME STATE =====================
+    let problems=[], totalQ=0, currentIndex=0, score=0, skipped=0, gameActive=false;
 
-    // DOM elements
-    const codeScreen = document.getElementById('codeScreen');
-    const gameScreen = document.getElementById('gameScreen');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const codeInput = document.getElementById('codeInput');
-    const codeError = document.getElementById('codeError');
-    const gameTitle = document.getElementById('gameTitle');
-    const qText = document.getElementById('questionText');
-    const qLabel = document.getElementById('qLabel');
-    const answerInput = document.getElementById('answerInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const skipBtn = document.getElementById('skipBtn');
-    const feedback = document.getElementById('feedback');
-    const ship = document.getElementById('shipIcon');
-    const progressFill = document.getElementById('progressFill');
-    const progressCont = document.getElementById('progressContainer');
-    const qCounter = document.getElementById('questionCounter');
-    const scoreDisp = document.getElementById('scoreDisplay');
-    const restartBtn = document.getElementById('restartBtn');
-    const formatHint = document.getElementById('formatHint');
-    const hintToggle = document.getElementById('hintToggle');
-    const hintBox = document.getElementById('hintBox');
-    const skipTally = document.getElementById('skipTally');
-    const toast = document.getElementById('toast');
+    const codeScreen=document.getElementById('codeScreen'), gameScreen=document.getElementById('gameScreen');
+    const codeInput=document.getElementById('codeInput'), codeError=document.getElementById('codeError');
+    const gameTitle=document.getElementById('gameTitle'), qText=document.getElementById('questionText');
+    const answerInput=document.getElementById('answerInput'), submitBtn=document.getElementById('submitBtn');
+    const skipBtn=document.getElementById('skipBtn'), feedback=document.getElementById('feedback');
+    const ship=document.getElementById('shipIcon'), progressFill=document.getElementById('progressFill');
+    const restartBtn=document.getElementById('restartBtn'), formatHint=document.getElementById('formatHint');
+    const hintToggle=document.getElementById('hintToggle'), hintBox=document.getElementById('hintBox');
+    const skipTally=document.getElementById('skipTally'), toast=document.getElementById('toast');
 
-    // Math rendering
+    // ===================== RENDER MATH =====================
     function renderMath(text) {
         if (!text) return '';
-        text = text.replace(/\{\{F:(-?\d+),(-?\d+)\}\}/g,
-            (_,n,d) => `<span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span>`);
-        text = text.replace(/\{\{M:(-?\d+),(-?\d+),(-?\d+)\}\}/g,
-            (_,w,n,d) => `<span class="mixed-number"><span class="whole">${w}</span><span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span></span>`);
-        text = text.replace(/\{\{(\d+),(\d+)\}\}/g,
-            (_,n,d) => `<span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span>`);
+        text = text.replace(/\{\{F:(-?\d+),(-?\d+)\}\}/g, (_, n, d) => `<span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span>`);
+        text = text.replace(/\{\{M:(-?\d+),(-?\d+),(-?\d+)\}\}/g, (_, w, n, d) => `<span class="mixed-number"><span class="whole">${w}</span><span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span></span>`);
+        text = text.replace(/\{\{P:([^,]+),([^}]+)\}\}/g, (_, base, exp) => `<span class="power-expr">${base}<sup>${exp}</sup></span>`);
+        text = text.replace(/\{\{SQ:([^}]+)\}\}/g, (_, expr) => `<span style="font-size:1.1em;">√${expr}</span>`);
+        text = text.replace(/\{\{(\d+),(\d+)\}\}/g, (_, n, d) => `<span class="fraction"><span class="numerator">${n}</span><span class="denominator">${d}</span></span>`);
         return text;
     }
 
+    // ===================== ANSWER PARSING =====================
     function parseAnswer(raw) {
         let s = String(raw).trim().replace(/\s+/g, ' ');
         if (!s) return NaN;
-        if (s.endsWith('%')) {
-            const p = parseFloat(s);
-            return isNaN(p) ? NaN : p/100;
-        }
-        if (/^\d{1,2}:\d{2}$/.test(s)) {
-            const [h,m] = s.split(':').map(Number);
-            return h + m/60;
-        }
+        if (s.endsWith('%')) { const p = parseFloat(s); return isNaN(p)?NaN:p/100; }
+        if (/^\d{1,2}:\d{2}$/.test(s)) { const [h,m]=s.split(':').map(Number); return h + m/60; }
         const mixed = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);
-        if (mixed) {
-            const w = parseInt(mixed[1]), n = parseInt(mixed[2]), d = parseInt(mixed[3]);
-            if (d===0) return NaN;
-            return w<0 ? w - n/d : w + n/d;
-        }
-        if (s.includes('/')) {
-            const [n,d] = s.split('/').map(Number);
-            if (isNaN(n)||isNaN(d)||d===0) return NaN;
-            return n/d;
-        }
+        if (mixed) { const w=parseInt(mixed[1]), n=parseInt(mixed[2]), d=parseInt(mixed[3]); if(d===0)return NaN; return w<0? w - n/d : w + n/d; }
+        if (s.includes('/')) { const [n,d]=s.split('/').map(Number); if(isNaN(n)||isNaN(d)||d===0)return NaN; return n/d; }
         return parseFloat(s);
     }
 
     function answersMatch(user, correct, tol=0.001) {
         const u = parseAnswer(user), c = parseAnswer(correct);
         if (!isNaN(u) && !isNaN(c)) return Math.abs(u-c) < tol;
-        return String(user).trim().toLowerCase().replace(/\s+/g,'') ===
-               String(correct).trim().toLowerCase().replace(/\s+/g,'');
+        return String(user).trim().toLowerCase().replace(/\s+/g,'') === String(correct).trim().toLowerCase().replace(/\s+/g,'');
     }
 
     function updateProgress() {
@@ -321,70 +160,24 @@
         const pct = (currentIndex/totalQ)*100;
         progressFill.style.width = pct+'%';
         ship.style.left = `calc(${Math.min(pct,96)}% - 20px)`;
-        for (let i=1; i<totalQ; i++) {
-            const dot = document.getElementById(`ms-${i}`);
-            if (dot) dot.classList.toggle('reached', i <= currentIndex);
-        }
-    }
-
-    function showToast(msg, type='info', dur=2200) {
-        toast.textContent = msg;
-        toast.className = `toast ${type} show`;
-        clearTimeout(toast._timeout);
-        toast._timeout = setTimeout(() => { toast.className = 'toast'; }, dur);
-    }
-
-    function launchConfetti() {
-        const canvas = document.createElement('canvas');
-        canvas.style.position='fixed'; canvas.style.top=0; canvas.style.left=0;
-        canvas.style.width='100%'; canvas.style.height='100%';
-        canvas.style.pointerEvents='none'; canvas.style.zIndex=999;
-        document.body.appendChild(canvas);
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const colors = ['#ffd700','#ff6b6b','#4ecdc4','#f9a825','#81c784'];
-        const pieces = Array.from({length:80}, ()=>({
-            x:Math.random()*canvas.width, y:Math.random()*-canvas.height,
-            w:8+Math.random()*8, h:4+Math.random()*6,
-            color:colors[Math.floor(Math.random()*colors.length)],
-            speed:2+Math.random()*4, rot:Math.random()*Math.PI*2
-        }));
-        function anim() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            pieces.forEach(p=>{
-                p.y += p.speed; p.rot += 0.1;
-                ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
-                ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
-                ctx.restore();
-            });
-            if (pieces.some(p=>p.y<canvas.height+20)) requestAnimationFrame(anim);
-            else canvas.remove();
-        }
-        requestAnimationFrame(anim);
     }
 
     function displayQuestion() {
         if (!gameActive || currentIndex >= totalQ) { finishGame(); return; }
         const q = problems[currentIndex];
-        wrongAttempts = 0; hintVisible = false;
-        qLabel.textContent = `Q${currentIndex+1}`;
         qText.innerHTML = renderMath(q.question);
         formatHint.textContent = q.formatHint || '';
         if (q.hint) {
             hintToggle.style.display='inline-block';
             hintBox.innerHTML = '💡 '+renderMath(q.hint);
-            hintBox.classList.remove('visible');
-            hintToggle.textContent = '💡 Show Hint';
+            hintBox.style.display='none'; hintToggle.textContent = '💡 Show Hint';
         } else {
-            hintToggle.style.display='none';
-            hintBox.classList.remove('visible');
+            hintToggle.style.display='none'; hintBox.style.display='none';
         }
-        qCounter.textContent = `Question ${currentIndex+1} / ${totalQ}`;
-        scoreDisp.textContent = `⭐ ${score} / ${totalQ}`;
+        document.getElementById('questionCounter').textContent = `Question ${currentIndex+1} / ${totalQ}`;
+        document.getElementById('scoreDisplay').textContent = `⭐ ${score} / ${totalQ}`;
         skipTally.textContent = skipped>0 ? `Skipped: ${skipped}` : '';
-        feedback.textContent=''; feedback.className='message info';
-        answerInput.value=''; answerInput.disabled=false; answerInput.className='';
+        feedback.textContent=''; answerInput.value=''; answerInput.disabled=false;
         submitBtn.disabled=false; skipBtn.disabled=false;
         answerInput.focus();
         updateProgress();
@@ -393,56 +186,27 @@
     function checkAnswer() {
         if (!gameActive) return;
         const user = answerInput.value.trim();
-        if (!user) { feedback.innerHTML='🦜 Please enter an answer!'; feedback.className='message wrong'; return; }
+        if (!user) { feedback.innerHTML='🦜 Enter an answer!'; return; }
         const q = problems[currentIndex];
         if (answersMatch(user, q.answer, q.tolerance)) {
             score++;
             feedback.innerHTML = `✅ Correct! ${q.explanation ? renderMath(q.explanation) : ''}`;
-            feedback.className = 'message correct';
-            scoreDisp.textContent = `⭐ ${score} / ${totalQ}`;
-            answerInput.classList.add('correct-flash');
-            showToast('✅ Correct!', 'success', 1500);
+            document.getElementById('scoreDisplay').textContent = `⭐ ${score} / ${totalQ}`;
             setTimeout(() => { currentIndex++; displayQuestion(); }, 1400);
         } else {
-            wrongAttempts++;
-            feedback.className = 'message wrong';
-            if (wrongAttempts===1) {
-                feedback.innerHTML = '❌ Not quite — try again!';
-                if (q.hint && !hintVisible) feedback.innerHTML += ' (Hint available)';
-            } else if (wrongAttempts===2) {
-                feedback.innerHTML = '🤔 Still not right. Check your working!';
-                if (q.hint) { hintVisible=true; hintBox.classList.add('visible'); hintToggle.textContent='💡 Hide Hint'; }
-            } else {
-                feedback.innerHTML = `💡 Answer: <strong>${q.answer}</strong>. ${q.explanation ? renderMath(q.explanation) : ''}`;
-                answerInput.classList.add('wrong-flash');
-                setTimeout(() => { currentIndex++; displayQuestion(); }, 2800);
-                return;
-            }
-            answerInput.classList.add('wrong-flash');
-            setTimeout(() => { answerInput.classList.remove('wrong-flash'); answerInput.value=''; answerInput.focus(); }, 600);
+            feedback.innerHTML = '❌ Not quite. Try again.';
+            if (q.hint) { hintBox.style.display='block'; hintToggle.textContent='💡 Hide Hint'; }
+            answerInput.value=''; answerInput.focus();
         }
     }
 
     function skipQuestion() {
         if (!gameActive) return;
-        const q = problems[currentIndex];
         skipped++;
-        feedback.innerHTML = `⏭ Skipped. Answer: <strong>${q.answer}</strong>. ${q.explanation ? renderMath(q.explanation) : ''}`;
-        feedback.className = 'message info';
+        feedback.innerHTML = `⏭ Skipped. Answer: <strong>${problems[currentIndex].answer}</strong>.`;
         submitBtn.disabled = skipBtn.disabled = true;
         skipTally.textContent = `Skipped: ${skipped}`;
         setTimeout(() => { currentIndex++; displayQuestion(); }, 2000);
-    }
-
-    function toggleHint() {
-        hintVisible = !hintVisible;
-        if (hintVisible) {
-            hintBox.classList.add('visible');
-            hintToggle.textContent = '💡 Hide Hint';
-        } else {
-            hintBox.classList.remove('visible');
-            hintToggle.textContent = '💡 Show Hint';
-        }
     }
 
     function finishGame() {
@@ -450,17 +214,9 @@
         ship.style.left = 'calc(100% - 48px)';
         progressFill.style.width = '100%';
         const pct = totalQ>0 ? Math.round((score/totalQ)*100) : 0;
-        const stars = pct===100?'⭐⭐⭐⭐⭐':pct>=80?'⭐⭐⭐⭐':pct>=60?'⭐⭐⭐':pct>=40?'⭐⭐':'⭐';
-        const grade = pct===100?'Perfect!':pct>=80?'Excellent!':pct>=60?'Good!':pct>=40?'Keep trying!':'More practice needed';
-        qText.innerHTML = `<div class="result-box"><h2>🏆 Treasure Found!</h2>
-            <div class="stars-display">${stars}</div>
-            <div class="result-grade">${grade}</div>
-            <p>You scored <strong>${score}</strong> / ${totalQ} (${pct}%)</p></div>`;
-        qLabel.textContent=''; formatHint.textContent='';
-        hintToggle.style.display='none'; hintBox.classList.remove('visible');
+        qText.innerHTML = `<h2>🏆 Treasure Found!</h2><p>You scored ${score}/${totalQ} (${pct}%)</p>`;
         answerInput.style.display='none'; submitBtn.style.display='none'; skipBtn.style.display='none';
-        feedback.textContent=''; restartBtn.style.display='inline-block';
-        if (pct>=80) launchConfetti();
+        restartBtn.style.display='inline-block';
     }
 
     function restart() {
@@ -476,38 +232,25 @@
     async function loadWorksheet(code) {
         const upper = code.toUpperCase().trim();
         if (!upper) return;
-        loadingOverlay.style.display='flex';
-        codeError.textContent='';
+        codeError.textContent = '';
         const url = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${BRANCH}/${WORKSHEET_PATH}/${upper}.json`;
         try {
             const res = await fetch(url);
             if (!res.ok) throw new Error(`Worksheet "${upper}" not found (HTTP ${res.status}).`);
             const ws = await res.json();
-            if (!ws.title || !Array.isArray(ws.problems) || ws.problems.length===0)
-                throw new Error('Invalid worksheet format.');
+            if (!ws.title || !ws.problems || ws.problems.length===0) throw new Error('Invalid worksheet format.');
             problems = ws.problems;
             totalQ = problems.length;
             currentIndex = 0; score = 0; skipped = 0;
             gameActive = true;
-            codeScreen.style.display='none';
-            gameScreen.style.display='block';
+            codeScreen.style.display = 'none';
+            gameScreen.style.display = 'block';
             gameTitle.innerHTML = `${ws.themeEmoji||'⛵'} ${ws.title}`;
-            restartBtn.style.display='none';
-            progressCont.querySelectorAll('.milestone').forEach(el=>el.remove());
-            for (let i=1; i<totalQ; i++) {
-                const dot = document.createElement('span');
-                dot.className = 'milestone';
-                dot.id = `ms-${i}`;
-                dot.style.left = `calc(${(i/totalQ)*100}% - 7px)`;
-                progressCont.appendChild(dot);
-            }
-            updateProgress();
+            restartBtn.style.display = 'none';
             displayQuestion();
         } catch(e) {
             codeError.innerHTML = `☠️ ${e.message}`;
             console.error(e);
-        } finally {
-            loadingOverlay.style.display='none';
         }
     }
 
@@ -518,7 +261,10 @@
     answerInput.addEventListener('keypress',e=>{ if(e.key==='Enter') checkAnswer(); });
     skipBtn.addEventListener('click',skipQuestion);
     restartBtn.addEventListener('click',restart);
-    hintToggle.addEventListener('click',toggleHint);
+    hintToggle.addEventListener('click',()=>{
+        if (hintBox.style.display==='block') { hintBox.style.display='none'; hintToggle.textContent='💡 Show Hint'; }
+        else { hintBox.style.display='block'; hintToggle.textContent='💡 Hide Hint'; }
+    });
     window.useCode = (c)=>{ codeInput.value=c; codeInput.focus(); };
     codeInput.focus();
 })();
