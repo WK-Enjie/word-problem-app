@@ -1,0 +1,87 @@
+{
+    "title": "Indices – Solving Equations Level 2",
+    "themeEmoji": "🧠",
+    "problems": [
+        {
+            "question": "Solve for x:<br><br>{{P:2,123}} + {{P:2,120}} = {{P:2,x+3}} × 18",
+            "answer": "116",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out the smallest power of 2 on the left. Simplify the bracket, then rewrite the right side so that both sides are powers of 2 multiplied by numbers. Equate the exponents of 2.",
+            "explanation": "2¹²³ + 2¹²⁰ = 2¹²⁰(2³ + 1) = 2¹²⁰(8+1) = 9·2¹²⁰. Right side: 2ˣ⁺³ × 18 = 18·2ˣ⁺³. So 9·2¹²⁰ = 18·2ˣ⁺³ ⟹ divide both sides by 9: 2¹²⁰ = 2·2ˣ⁺³ = 2ˣ⁺⁴. Thus 120 = x+4 ⟹ x = 116.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:2,x+2}} − {{P:2,x}} = 12",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out 2ˣ from the left side. Simplify the bracket, then express the right side as a power of 2.",
+            "explanation": "2ˣ⁺² − 2ˣ = 2ˣ(2² − 1) = 2ˣ(4−1) = 3·2ˣ = 12 ⟹ 2ˣ = 4 = 2² ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:3,x+2}} + {{P:3,x}} = 90",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out 3ˣ from both terms on the left. Combine the constants, then write the right side as a power of 3 times a number. Equate the powers of 3.",
+            "explanation": "3ˣ⁺² + 3ˣ = 3ˣ(3² + 1) = 3ˣ(9+1) = 10·3ˣ = 90 ⟹ 3ˣ = 9 = 3² ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:5,2x+1}} + {{P:5,2x}} = 30",
+            "answer": "0.5",
+            "tolerance": 0.01,
+            "type": "algebra",
+            "hint": "Factor out the smallest power of 5 on the left. Simplify the bracket, then write the equation as 5^(something) = a number. Compare the exponents.",
+            "explanation": "5²ˣ⁺¹ + 5²ˣ = 5²ˣ(5 + 1) = 6·5²ˣ = 30 ⟹ 5²ˣ = 5 = 5¹ ⟹ 2x = 1 ⟹ x = 0.5.",
+            "formatHint": "Enter a number, e.g. 0.5 or 1/2"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:2,x+3}} + {{P:2,x+1}} = 80",
+            "answer": "3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out the smallest power of 2 present. Then simplify and express the result as a power of 2.",
+            "explanation": "2ˣ⁺³ + 2ˣ⁺¹ = 2ˣ⁺¹(2² + 1) = 2ˣ⁺¹(4+1) = 5·2ˣ⁺¹ = 80 ⟹ 2ˣ⁺¹ = 16 = 2⁴ ⟹ x+1 = 4 ⟹ x = 3.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:3,x+2}} − {{P:3,x+1}} = 18",
+            "answer": "1",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out the smaller power of 3. Simplify the bracket, then divide to isolate the power of 3. Compare the exponents.",
+            "explanation": "3ˣ⁺² − 3ˣ⁺¹ = 3ˣ⁺¹(3 − 1) = 2·3ˣ⁺¹ = 18 ⟹ 3ˣ⁺¹ = 9 = 3² ⟹ x+1 = 2 ⟹ x = 1.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:7,2x}} − {{P:7,x}} = 0",
+            "answer": "0",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out 7ˣ and set each factor equal to zero. Note that 7ˣ is never zero.",
+            "explanation": "7²ˣ − 7ˣ = 7ˣ(7ˣ − 1) = 0. Since 7ˣ > 0 always, we must have 7ˣ − 1 = 0 ⟹ 7ˣ = 1 = 7⁰ ⟹ x = 0.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:4,x+1}} − {{P:4,x}} = 48",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out 4ˣ from the left side. Simplify the bracket, then write the right side as a power of 4.",
+            "explanation": "4ˣ⁺¹ − 4ˣ = 4ˣ(4 − 1) = 3·4ˣ = 48 ⟹ 4ˣ = 16 = 4² ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:5,x+2}} + {{P:5,x-1}} = 630",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Factor out the smallest power of 5. Simplify the bracket, then divide to isolate 5^(something). Equate exponents.",
+            "explanation": "5ˣ⁺² + 5ˣ⁻¹ = 5ˣ⁻¹(5³ + 1) = 5ˣ⁻¹(125+1) = 126·5ˣ⁻¹ = 630 ⟹ 5ˣ⁻¹ = 5 = 5¹ ⟹ x−1 = 1 ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        }
+    ]
+}

@@ -1,0 +1,96 @@
+{
+    "title": "Indices – Solving Equations Level 1",
+    "themeEmoji": "🔢",
+    "problems": [
+        {
+            "question": "Solve for x:<br><br>{{P:2,x}} = 32",
+            "answer": "5",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Write 32 as a power of 2, then equate the exponents.",
+            "explanation": "32 = 2⁵. So 2ˣ = 2⁵ ⟹ x = 5.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:3,x+1}} = 81",
+            "answer": "3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Write 81 as a power of 3. Then set the exponent equal to x+1.",
+            "explanation": "81 = 3⁴. So x+1 = 4 ⟹ x = 3.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:5,2x}} = 125",
+            "answer": "1.5",
+            "tolerance": 0.01,
+            "type": "algebra",
+            "hint": "Express 125 as a power of 5. Then put the exponents equal and solve for x.",
+            "explanation": "125 = 5³. So 2x = 3 ⟹ x = 1.5.",
+            "formatHint": "Enter a number, e.g. 1.5 or 3/2"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:2,x}} × {{P:2,3}} = {{P:2,10}}",
+            "answer": "7",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Combine the left side using the product rule for indices. Then equate the exponents.",
+            "explanation": "2ˣ × 2³ = 2ˣ⁺³ = 2¹⁰ ⟹ x+3 = 10 ⟹ x = 7.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:3,x-2}} = 27",
+            "answer": "5",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Write 27 as a power of 3, then compare the exponents.",
+            "explanation": "27 = 3³. So x−2 = 3 ⟹ x = 5.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>({{P:2,3}}){{P:,x}} = {{P:2,12}}",
+            "answer": "4",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Use the power-of-a-power rule: multiply the exponents. Then equate to the exponent on the right.",
+            "explanation": "(2³)ˣ = 2³ˣ = 2¹² ⟹ 3x = 12 ⟹ x = 4.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:4,x}} ÷ {{P:4,2}} = {{P:4,5}}",
+            "answer": "7",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Use the quotient rule for indices: subtract the exponents. Then set equal to the exponent on the right.",
+            "explanation": "4ˣ⁻² = 4⁵ ⟹ x−2 = 5 ⟹ x = 7.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:10,x}} = 0.001",
+            "answer": "-3",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Write 0.001 as a power of 10. Use a negative exponent.",
+            "explanation": "0.001 = 10⁻³. So 10ˣ = 10⁻³ ⟹ x = −3.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:5,x+2}} = 625",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Write 625 as a power of 5. Then solve the equation for x.",
+            "explanation": "625 = 5⁴. So x+2 = 4 ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Solve for x:<br><br>{{P:2,3x-1}} = 32",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "algebra",
+            "hint": "Express 32 as 2⁵. Then set the exponents equal and solve for x.",
+            "explanation": "32 = 2⁵. So 3x−1 = 5 ⟹ 3x = 6 ⟹ x = 2.",
+            "formatHint": "Enter a whole number"
+        }
+    ]
+}
