@@ -1,0 +1,96 @@
+{
+    "title": "Volume – Capacity & Transfers Level 1",
+    "themeEmoji": "🧊",
+    "problems": [
+        {
+            "question": "A rectangular tank measures 30 cm by 20 cm by 15 cm. How many litres of water can it hold when full? (1 litre = 1 000 cm³)",
+            "answer": "9",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Find the volume in cm³ (length × breadth × height). Then divide by 1 000.",
+            "explanation": "Volume = 30 × 20 × 15 = 9 000 cm³. 9 000 cm³ = 9 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A tank contains 5.5 litres of water. Express this volume in cm³.",
+            "answer": "5500",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "1 litre = 1 000 cm³. Multiply the number of litres by 1 000.",
+            "explanation": "5.5 × 1 000 = 5 500 cm³.",
+            "formatHint": "Enter a whole number (cm³)"
+        },
+        {
+            "question": "A rectangular tank is 40 cm long, 25 cm wide and contains water to a height of 12 cm. What is the volume of water in the tank in litres?",
+            "answer": "12",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Volume of water = length × breadth × height of water. Convert cm³ to litres.",
+            "explanation": "40 × 25 × 12 = 12 000 cm³ = 12 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A cubical tank of side 20 cm is {{F:3,4}} full. How many litres of water are in the tank?",
+            "answer": "6",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Find the total volume of the cube, then find ¾ of it. Convert to litres.",
+            "explanation": "Cube volume = 20³ = 8 000 cm³. ¾ × 8 000 = 6 000 cm³ = 6 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "Tank A holds 3.2 litres of water. Tank B holds 2 800 cm³ of water. Which tank holds more water and by how many cm³?",
+            "answer": "400",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Convert both volumes to cm³. Subtract the smaller from the larger.",
+            "explanation": "3.2 L = 3 200 cm³. Difference = 3 200 − 2 800 = 400 cm³. Tank A holds more by 400 cm³.",
+            "formatHint": "Enter the difference in cm³"
+        },
+        {
+            "question": "Water from a full tank measuring 25 cm by 20 cm by 30 cm is poured into a cubical tank of side 20 cm until the cubical tank is full. How many litres of water are left in the first tank?",
+            "answer": "7",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Find the volume of each tank. Subtract the cube's volume from the first tank's volume. Convert to litres.",
+            "explanation": "First tank: 25×20×30 = 15 000 cm³. Cube: 20³ = 8 000 cm³. Left = 7 000 cm³ = 7 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A tank is 50 cm long, 30 cm wide and 20 cm high. It is filled with water to a height of 8 cm. How many more litres of water are needed to fill it to the brim?",
+            "answer": "18",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Remaining height = total height − current water height. Volume needed = length × breadth × remaining height. Convert to litres.",
+            "explanation": "Remaining height = 20 − 8 = 12 cm. Volume = 50×30×12 = 18 000 cm³ = 18 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A tank is {{F:2,5}} full of water. After 12 litres of water are added, it becomes {{F:4,5}} full. What is the total capacity of the tank in litres?",
+            "answer": "30",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "The increase in fraction full is ⅖. That fraction of the tank equals 12 litres. Find the whole capacity.",
+            "explanation": "⅘ − ⅖ = ⅖. ⅖ of tank = 12 L → ⅕ = 6 L → full capacity = 5 × 6 = 30 litres.",
+            "formatHint": "Enter a whole number (litres)"
+        },
+        {
+            "question": "A rectangular tank 35 cm by 20 cm by 10 cm is completely filled with water. The water is poured into another tank with base 25 cm by 16 cm. Find the height of water in the second tank.",
+            "answer": "17.5",
+            "tolerance": 0.05,
+            "type": "volume",
+            "hint": "Find the total volume of water. Divide by the base area of the second tank.",
+            "explanation": "Volume = 35×20×10 = 7 000 cm³. Base area = 25×16 = 400 cm². Height = 7 000 ÷ 400 = 17.5 cm.",
+            "formatHint": "Enter a number (cm)"
+        },
+        {
+            "question": "A tank measuring 30 cm by 20 cm by 15 cm is half full of water. All the water is transferred into an empty cubical tank of side 20 cm. What fraction of the cubical tank is filled with water?",
+            "answer": "9/16",
+            "tolerance": 0.001,
+            "type": "volume",
+            "hint": "Find the volume of water (half the rectangular tank). Compare to the total volume of the cube.",
+            "explanation": "Water = ½ × (30×20×15) = 4 500 cm³. Cube = 8 000 cm³. Fraction = 4 500/8 000 = 9/16.",
+            "formatHint": "Enter a fraction, e.g. 9/16"
+        }
+    ]
+}

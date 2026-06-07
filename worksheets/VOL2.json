@@ -1,0 +1,96 @@
+{
+    "title": "Volume – Advanced Challenges Level 2",
+    "themeEmoji": "🧠",
+    "problems": [
+        {
+            "question": "A rectangular tank has a base area of 240 cm². When 4.8 litres of water are poured in, what is the height of the water in cm?",
+            "answer": "20",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Convert litres to cm³. Divide by the base area.",
+            "explanation": "4.8 L = 4 800 cm³. Height = 4 800 ÷ 240 = 20 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        },
+        {
+            "question": "A sealed rectangular tank 50 cm by 30 cm by 40 cm contains water to a height of 20 cm when resting on its 50 cm by 30 cm base. It is turned so that it rests on its 30 cm by 40 cm face. Find the new water height.",
+            "answer": "25",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "The volume of water stays the same. Divide that volume by the new base area.",
+            "explanation": "Water volume = 50×30×20 = 30 000 cm³. New base area = 30×40 = 1 200 cm². Height = 30 000 ÷ 1 200 = 25 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        },
+        {
+            "question": "Tank A has base 20 cm by 12 cm and contains water to a depth of 15 cm. Tank B has base 30 cm by 16 cm and is empty. Water is transferred from A to B until the water depth in both tanks is the same. Find this common depth.",
+            "answer": "5",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Let the common depth be h. Total volume remains constant. Set up an equation using base areas × h and the initial volume.",
+            "explanation": "Initial volume = 20×12×15 = 3 600 cm³. After transfer: volume in A = 240h, in B = 480h. Total = 720h = 3 600 → h = 5 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        },
+        {
+            "question": "A net of a closed box is shown (not drawn to scale). The base is a square of side 8 cm, and the four rectangular flaps are each 8 cm by 12 cm. When folded, what is the volume of the box in litres?",
+            "answer": "0.768",
+            "tolerance": 0.001,
+            "type": "volume",
+            "hint": "The box has a square base of side 8 cm and height equal to the other dimension of the flaps (12 cm). Find volume in cm³, then convert to litres.",
+            "explanation": "Base area = 8×8 = 64 cm². Height = 12 cm. Volume = 64×12 = 768 cm³ = 0.768 litres.",
+            "formatHint": "Enter a decimal (litres)"
+        },
+        {
+            "question": "A rectangular tank 20 cm by 15 cm by 10 cm is completely filled with water. The water is poured into an empty cylindrical container of base radius 7 cm (take π = 22/7). Find the height of water in the cylindrical container, to the nearest cm.",
+            "answer": "19",
+            "tolerance": 0.5,
+            "type": "volume",
+            "hint": "Find the volume of the rectangular tank. Base area of cylinder = πr². Divide volume by base area. Round to nearest cm.",
+            "explanation": "Volume = 20×15×10 = 3 000 cm³. Base area = (22/7)×7² = 154 cm². Height = 3 000 ÷ 154 ≈ 19.48 → nearest cm = 19 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        },
+        {
+            "question": "What is the greatest number of 3‑cm cubes that can be packed into a rectangular box measuring 20 cm by 15 cm by 10 cm?",
+            "answer": "90",
+            "tolerance": 0,
+            "type": "volume",
+            "hint": "Find how many cubes fit along each dimension (divide and round down). Multiply the three numbers.",
+            "explanation": "Along 20 cm: 20 ÷ 3 = 6 cubes. Along 15 cm: 5 cubes. Along 10 cm: 3 cubes. Total = 6 × 5 × 3 = 90 cubes.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A rectangular tank is 50 cm by 40 cm by 30 cm. It contains water to a depth of 10 cm. When a rock is placed inside, the water level rises to 15 cm. What is the volume of the rock in cm³?",
+            "answer": "10000",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "The volume of the rock equals the increase in water volume. Multiply base area by the rise in water level.",
+            "explanation": "Rise = 15 − 10 = 5 cm. Base area = 50×40 = 2 000 cm². Volume of rock = 2 000 × 5 = 10 000 cm³.",
+            "formatHint": "Enter a whole number (cm³)"
+        },
+        {
+            "question": "Tank X (30 cm by 20 cm) contains water to a height of 9 cm. Tank Y (25 cm by 16 cm) contains water to a height of 6 cm. All water is poured into empty Tank Z with base 30 cm by 26 cm. Find the water height in Tank Z.",
+            "answer": "10",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Calculate the total volume of water from both tanks. Divide by the base area of Tank Z.",
+            "explanation": "Volume X = 30×20×9 = 5 400 cm³. Volume Y = 25×16×6 = 2 400 cm³. Total = 7 800 cm³. Base Z = 30×26 = 780 cm². Height = 7 800 ÷ 780 = 10 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        },
+        {
+            "question": "A rectangular block of cheese 24 cm by 18 cm by 10 cm is cut into cubes of side 3 cm. How many whole cubes can be obtained?",
+            "answer": "144",
+            "tolerance": 0,
+            "type": "volume",
+            "hint": "Divide each dimension by 3 and take the whole number of cubes. Multiply them.",
+            "explanation": "24÷3=8, 18÷3=6, 10÷3=3 (only 9 cm used). Total cubes = 8×6×3 = 144.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A rectangular tank 60 cm by 25 cm contained water to a height of 15 cm. 12 litres of water were removed. By how many cm did the water level drop?",
+            "answer": "8",
+            "tolerance": 0.01,
+            "type": "volume",
+            "hint": "Drop in height = volume removed ÷ base area. Convert litres to cm³.",
+            "explanation": "12 L = 12 000 cm³. Base area = 60×25 = 1 500 cm². Drop = 12 000 ÷ 1 500 = 8 cm.",
+            "formatHint": "Enter a whole number (cm)"
+        }
+    ]
+}
