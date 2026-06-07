@@ -1,0 +1,96 @@
+{
+    "title": "LCM, HCF & Number Theory Level 2",
+    "themeEmoji": "🧠",
+    "problems": [
+        {
+            "question": "Two numbers have an HCF of 15 and an LCM of 420. If one number is 60, find the other.",
+            "answer": "105",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Use the relationship: Product of the two numbers = HCF × LCM.",
+            "explanation": "Product = 15 × 420 = 6300. Other number = 6300 ÷ 60 = 105.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest integer that must multiply 54 to make it a perfect cube. Give the integer itself.",
+            "answer": "4",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise 54. For a perfect cube, each exponent must be a multiple of 3. What is the smallest multiplier?",
+            "explanation": "54 = 2 × 3³. The exponent of 2 is 1 (needs 2 more to become 3). So multiply by 2² = 4.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "If p is a prime number greater than 3, what is the HCF of (p−1) and (p+1)?",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Both numbers are even, and between two consecutive even numbers, the HCF is 2.",
+            "explanation": "p is odd, so p−1 and p+1 are consecutive even numbers. Their HCF = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "The product of three consecutive integers is always divisible by a certain number. What is that number?",
+            "answer": "6",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Among three consecutive integers, at least one is even and one is a multiple of 3.",
+            "explanation": "The product is always divisible by 2 and 3, hence by 6.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "The LCM of x and 18 is 72, and their HCF is 6. Find the value of x.",
+            "answer": "24",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Use Product = LCM × HCF.",
+            "explanation": "x × 18 = 72 × 6 = 432 → x = 432 ÷ 18 = 24.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Consider the number 600 = 2<sup>3</sup> × 3 × 5<sup>2</sup>. What is the smallest prime number that can be added to 600 to make the result a multiple of 7?",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Find the remainder when 600 is divided by 7. The prime you add must make the sum reach the next multiple of 7.",
+            "explanation": "600 ÷ 7 = 85 remainder 5. To reach the next multiple (602), add 2, which is prime.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "A number N = 2<sup>a</sup> × 3<sup>b</sup> × 5<sup>c</sup> (a, b, c are positive integers) has exactly 12 factors. What is the smallest possible value of N?",
+            "answer": "60",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "The number of factors = (a+1)(b+1)(c+1) = 12. Try to minimise N by using larger exponents on smaller primes.",
+            "explanation": "Factorising 12 as 3×2×2 gives a=2, b=1, c=1 (exponents+1). N = 2² × 3 × 5 = 60.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest positive integer that has exactly 8 factors and is a multiple of 15.",
+            "answer": "30",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "A multiple of 15 contains 3 and 5. To have 8 factors with as small a number as possible, try adding one more prime factor (2) with exponent 1.",
+            "explanation": "30 = 2 × 3 × 5. Number of factors = 2×2×2 = 8. It is the smallest such number.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "What is the largest power of 2 that divides 10! (10 factorial)? That is, find the exponent of 2 in the prime factorisation of 10!.",
+            "answer": "8",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Use the formula for the exponent of a prime in n!: sum of floor(10/2), floor(10/4), floor(10/8), etc.",
+            "explanation": "floor(10/2)=5, floor(10/4)=2, floor(10/8)=1 → total = 8.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Two numbers, A and B, have an HCF of 8 and an LCM of 144. If A = 16, find B.",
+            "answer": "72",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Again, use A × B = HCF × LCM.",
+            "explanation": "16 × B = 8 × 144 = 1152 → B = 1152 ÷ 16 = 72.",
+            "formatHint": "Enter a whole number"
+        }
+    ]
+}

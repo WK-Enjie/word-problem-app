@@ -1,0 +1,96 @@
+{
+    "title": "LCM, HCF & Prime Factorisation Level 1",
+    "themeEmoji": "🔢",
+    "problems": [
+        {
+            "question": "Find the smallest positive integer x such that 125x is a multiple of 120.",
+            "answer": "24",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise 125 and 120. The multiple condition means 120 divides 125x. Determine what factors are missing in 125 and must be supplied by x.",
+            "explanation": "125 = 5³. 120 = 2³ × 3 × 5. The LCM of 125 and 120 is 2³ × 3 × 5³ = 3000. Then 125x = 3000 ⇒ x = 24.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Given A = 2<sup>3</sup> × 3<sup>2</sup> × 5 and B = 2<sup>2</sup> × 3<sup>3</sup> × 7. Find the HCF of A and B.",
+            "answer": "36",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "For the HCF, take the smallest exponent for each common prime factor.",
+            "explanation": "HCF = 2² × 3² = 4 × 9 = 36.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Using the same A and B as above, find the LCM of A and B.",
+            "answer": "7560",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "For the LCM, take the highest exponent for each prime that appears in either number.",
+            "explanation": "LCM = 2³ × 3³ × 5 × 7 = 8 × 27 × 5 × 7 = 7560.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest positive integer k such that 72k is a perfect cube.",
+            "answer": "3",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise 72. For a perfect cube, every exponent in the prime factorisation must be a multiple of 3. Determine what is missing.",
+            "explanation": "72 = 2³ × 3². To make the exponent of 3 a multiple of 3, we need one more 3. So k = 3.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest integer x such that 84x is a multiple of 45.",
+            "answer": "15",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise 84 and 45. Use the LCM to find what factors x must supply.",
+            "explanation": "84 = 2² × 3 × 7, 45 = 3² × 5. LCM = 2² × 3² × 5 × 7 = 1260. Then x = 1260 ÷ 84 = 15.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Given C = 2<sup>4</sup> × 3<sup>2</sup> × 5 and D = 2<sup>3</sup> × 3<sup>3</sup> × 7. Find the HCF of C and D.",
+            "answer": "72",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Take the smaller exponent for each common prime.",
+            "explanation": "HCF = 2³ × 3² = 8 × 9 = 72.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the LCM of 18, 24 and 30.",
+            "answer": "360",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise each number, then take the highest power of every prime that appears.",
+            "explanation": "18 = 2 × 3², 24 = 2³ × 3, 30 = 2 × 3 × 5. LCM = 2³ × 3² × 5 = 8 × 9 × 5 = 360.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "The number 1400 can be written as 2<sup>a</sup> × 5<sup>b</sup> × 7<sup>c</sup>. Find the value of a + b + c.",
+            "answer": "6",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Prime factorise 1400 and compare exponents.",
+            "explanation": "1400 = 14 × 100 = 2 × 7 × 2² × 5² = 2³ × 5² × 7¹. So a=3, b=2, c=1 → sum = 6.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest positive integer n such that 2<sup>3</sup> × 3<sup>2</sup> × n is a perfect square.",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "For a perfect square, all exponents must be even. Which prime's exponent is odd? Multiply by that prime to make it even.",
+            "explanation": "Exponent of 2 is 3 (odd), so we need one more 2. Hence n = 2.",
+            "formatHint": "Enter a whole number"
+        },
+        {
+            "question": "Find the smallest integer x such that 200x is a perfect square.",
+            "answer": "2",
+            "tolerance": 0,
+            "type": "number",
+            "hint": "Factorise 200 and check which prime exponents are odd.",
+            "explanation": "200 = 2³ × 5². The exponent of 2 is odd, so multiply by 2. x = 2.",
+            "formatHint": "Enter a whole number"
+        }
+    ]
+}
