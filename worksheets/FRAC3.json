@@ -1,0 +1,118 @@
+{
+    "title": "Fractions – Advanced Critical Thinking Level 3",
+    "themeEmoji": "🚀",
+    "problems": [
+        {
+            "question": "Alan and Bernard had some money. Alan gave {{F:1,3}} of his money to Bernard. Bernard then gave {{F:1,4}} of his new total money to Alan. In the end, Alan had $240 and Bernard had $120. How much money did Alan have at first?",
+            "answer": "300",
+            "tolerance": 0.01,
+            "hint": "Work backwards from the end state. Bernard's final $120 represents 3 units out of 4 before he gave money back to Alan.",
+            "explanation": "Before Bernard gave money back: Bernard = $120 ÷ 3 × 4 = $160 (meaning he gave $40 to Alan). Alan before receiving that money = $240 - $40 = $200. Since Alan gave away 1/3 of his original amount, his remaining $200 represents 2 units out of 3. Alan at first = $200 ÷ 2 × 3 = <strong>300</strong>."
+        },
+        {
+            "question": "John's savings was {{F:1,3}} of Keith's savings. After each of them spent $60 on a video game, John's savings became {{F:1,5}} of Keith's savings. What was their total savings at first?",
+            "answer": "480",
+            "tolerance": 0.01,
+            "hint": "The difference between John and Keith's savings remains unchanged because they spent the exact same amount.",
+            "explanation": "At first, J:K is 1:3 (difference of 2 units). After, J:K is 1:5 (difference of 4 units). Multiply the 'at first' ratio by 2 to equalize the difference: J:K becomes 2:6 (difference of 4 units). John dropped from 2 units to 1 unit, so 1 unit = $60. Total units at first = 2 + 6 = 8 units. Total savings = 8 × $60 = <strong>480</strong>."
+        },
+        {
+            "question": "A crate contained apples and pears. {{F:3,5}} of the fruits were apples. After 24 apples were sold, the number of apples became {{F:1,3}} of the total number of fruits left. How many fruits were in the crate at first?",
+            "answer": "60",
+            "tolerance": 0.01,
+            "hint": "The number of pears does not change. Keep the units for pears constant before and after the sale.",
+            "explanation": "At first, Apples : Pears = 3 : 2. After, Apples : Total = 1 : 3, which means Apples : Pears = 1 : 2. Since the pear units are already unchanged (2 units), we can compare apples directly. Apples decreased from 3 units to 1 unit (a change of 2 units). 2 units = 24 fruits → 1 unit = 12 fruits. Total units at first = 3 + 2 = 5 units. Total fruits = 5 × 12 = <strong>60</strong>."
+        },
+        {
+            "question": "{{F:2,3}} of Cindy's stamps is equal to {{F:3,5}} of Danny's stamps. Danny has 15 more stamps than Cindy. Emily has {{F:1,2}} as many stamps as Danny. How many stamps do the three children have altogether?",
+            "answer": "360",
+            "tolerance": 0.01,
+            "hint": "Make the numerators of both fractions equal to find the direct ratio of Cindy's units to Danny's units.",
+            "explanation": "Convert numerators to a common multiple of 6: 2/3 of Cindy = 6/9 of Cindy. 3/5 of Danny = 6/10 of Danny. Therefore, Cindy has 9 units and Danny has 10 units. Difference = 1 unit = 15 stamps. Cindy = 9 × 15 = 135. Danny = 10 × 15 = 150. Emily has half of Danny's = 75. Total = 135 + 150 + 75 = <strong>360 stamps</strong>."
+        },
+        {
+            "question": "There are some tokens in Box A and Box B. {{F:1,3}} of the tokens are in Box A and the rest are in Box B. After 40 tokens are transferred from Box B to Box A, the number of tokens in Box A becomes {{F:3,5}} of the total number of tokens. How many tokens are there altogether?",
+            "answer": "150",
+            "tolerance": 0.01,
+            "hint": "The total number of tokens across both boxes remains constant throughout the internal transfer.",
+            "explanation": "At first, Box A : Total = 1 : 3 (scale up by 5 to get 5 : 15). After, Box A : Total = 3 : 5 (scale up by 3 to get 9 : 15). Box A increased from 5 units to 9 units, which is an increase of 4 units. 4 units = 40 tokens → 1 unit = 10 tokens. Total tokens = 15 units × 10 = <strong>150</strong>."
+        },
+        {
+            "question": "Farmer Brown harvested some potatoes. He sold {{F:1,4}} of them plus 20 kg in the morning. In the afternoon, he sold {{F:2,5}} of the remaining potatoes plus 15 kg. He was left with 45 kg of potatoes. How many kilograms of potatoes did he harvest at first?",
+            "answer": "160",
+            "tolerance": 0.01,
+            "hint": "Work backwards step-by-step from the final 45 kg, adding back the extra kilograms before finding the value of the fractional units.",
+            "explanation": "Before the afternoon's extra 15 kg was sold: 45 + 15 = 60 kg. This 60 kg represents the remaining 3/5 of the afternoon batch. Afternoon remainder = 60 ÷ 3 × 5 = 100 kg. Before the morning's extra 20 kg was sold: 100 + 20 = 120 kg. This 120 kg represents the remaining 3/4 of the total harvest. Total harvest = 120 ÷ 3 × 4 = <strong>160 kg</strong>."
+        },
+        {
+            "question": "In a science club, {{F:2,3}} of the members are boys. {{F:1,4}} of the boys wear glasses, and {{F:3,5}} of the girls do not wear glasses. If 54 members in the club wear glasses, find the total number of members in the science club.",
+            "answer": "180",
+            "tolerance": 0.01,
+            "hint": "Find what fraction of the total club membership represents the boys with glasses and the girls with glasses.",
+            "explanation": "Let total membership be 30 units. Boys = 20 units, Girls = 10 units. Boys with glasses = 1/4 × 20 = 5 units. Girls with glasses = (1 - 3/5) × 10 = 4 units. Total members with glasses = 5 + 4 = 9 units. 9 units = 54 members → 1 unit = 6 members. Total members = 30 units × 6 = <strong>180</strong>."
+        },
+        {
+            "question": "Tap A takes 4 hours to fill an empty water tank, while Tap B takes 6 hours to fill it. Drainage Pipe C takes 3 hours to empty the full tank completely. If the tank is already {{F:1,4}} full and both taps and the pipe are turned on at the same time, how many hours will it take to fill the tank to its brim?",
+            "answer": "9",
+            "tolerance": 0.01,
+            "hint": "Find a common multiple for the hours (4, 6, and 3) to represent the entire tank capacity as a clean number of units.",
+            "explanation": "Let the tank capacity be 12 units. The tank is 1/4 full, which means it already has 3 units of water and needs 9 units to be full. In 1 hour: Tap A adds 3 units, Tap B adds 2 units, and Pipe C drains 4 units. Net fill rate per hour = 3 + 2 - 4 = 1 unit per hour. Time needed to fill remaining 9 units = 9 units ÷ 1 unit/hour = <strong>9 hours</strong>."
+        },
+        {
+            "question": "Xavier and Yvonne have $170 altogether. {{F:2,3}} of Xavier's money is $20 more than {{F:1,2}} of Yvonne's money. How much money does Xavier have?",
+            "answer": "90",
+            "tolerance": 0.01,
+            "hint": "Let Yvonne's money be represented by 2 units, meaning half of her money is exactly 1 unit.",
+            "explanation": "Let Yvonne = 2 units (so half = 1 unit). 2/3 of Xavier = 1 unit + $20. Halving this means 1/3 of Xavier = 0.5 units + $10, so Xavier's total (3/3) = 1.5 units + $30. Total money = Yvonne + Xavier = 2 units + 1.5 units + $30 = 3.5 units + $30 = $170. 3.5 units = $140 → 1 unit = $40. Xavier's money = 1.5 × $40 + $30 = <strong>90</strong>."
+        },
+        {
+            "question": "A baker sells large cupcakes for $4 each and small cupcakes for $3 each. The number of large cupcakes sold was {{F:3,5}} of the number of small cupcakes sold. If the total revenue collected from these cupcakes was $540, how many cupcakes did the baker sell in total?",
+            "answer": "160",
+            "tolerance": 0.01,
+            "hint": "Group the cupcakes into sets. Every set contains 3 large cupcakes and 5 small cupcakes.",
+            "explanation": "Ratio of Large to Small quantities is 3 : 5. The value of 1 set of cupcakes = (3 × $4) + (5 × $3) = $12 + $15 = $27. Number of sets sold = $540 ÷ $27 = 20 sets. Total cupcakes sold = 20 sets × (3 + 5 cupcakes per set) = <strong>160</strong>."
+        },
+        {
+            "question": "In a library, {{F:1,4}} of the people are adults and the rest are children. After 30 adults left the library, the number of adults became {{F:1,6}} of the remaining number of people. How many children are there in the library?",
+            "answer": "225",
+            "tolerance": 0.01,
+            "hint": "The number of children does not change. Balance your units based on the children.",
+            "explanation": "At first, Adults : Children = 1 : 3 (scale up by 5 to get 5 : 15). After, Adults : Total remaining = 1 : 6, which means Adults : Children = 1 : 5 (scale up by 3 to get 3 : 15). The decrease in adults is 5 units - 3 units = 2 units. 2 units = 30 adults → 1 unit = 15. Total children = 15 units × 15 = <strong>225</strong>."
+        },
+        {
+            "question": "Two shapes, A and B, overlap each other. {{F:1,4}} of Shape A is shaded and {{F:2,7}} of Shape B is shaded. The unshaded area of Shape A is 15 cm² larger than the unshaded area of Shape B. What is the total area of the entire figure?",
+            "answer": "195",
+            "tolerance": 0.01,
+            "hint": "The shaded area is a single overlapping region shared by both shapes. Match the shaded units for both shapes.",
+            "explanation": "Since the shaded area is identical, make its units equal. Let the shaded area be 2 units. For Shape A: Shaded = 2 units (1/4 of total) → Total A = 8 units, Unshaded A = 6 units. For Shape B: Shaded = 2 units (2/7 of total) → Total B = 7 units, Unshaded B = 5 units. Difference in unshaded areas = 6 - 5 = 1 unit. 1 unit = 15 cm². Total area of figure = Total A + Unshaded B = 8 units + 5 units = 13 units. Total area = 13 × 15 = <strong>195</strong>."
+        },
+        {
+            "question": "At first, {{F:3,7}} of the passengers on a train were adults and the rest were children. At the next station, 15 adults boarded the train and 30 children left the train. In the end, the number of adults was equal to the number of children. How many passengers were on the train at first?",
+            "answer": "315",
+            "tolerance": 0.01,
+            "hint": "Set up a before-and-after model using 3 units for adults and 4 units for children, then look at the final equal state.",
+            "explanation": "At first, Adults = 3 units, Children = 4 units. After the station: New Adults = 3 units + 15, New Children = 4 units - 30. Since the final counts are equal: 3 units + 15 = 4 units - 30. Comparing the models, the difference of 1 unit (4 units - 3 units) is equal to 15 + 30 = 45 passengers. Total passengers at first = 7 units = 7 × 45 = <strong>315</strong>."
+        },
+        {
+            "question": "Janice spent {{F:2,7}} of her monthly salary on a dress and {{F:1,3}} of the remainder on a pair of shoes. She then spent {{F:3,5}} of the remaining salary on a designer bag. If the designer bag cost $60 more than the pair of shoes, find Janice's monthly salary.",
+            "answer": "1260",
+            "tolerance": 0.01,
+            "hint": "Draw a branching diagram. Choose a total number of starting units (like 105) that divides smoothly by 7, 3, and 5.",
+            "explanation": "Let total salary be 105 units. Dress = 2/7 of 105 = 30 units, leaving a remainder of 75 units. Shoes = 1/3 of 75 = 25 units, leaving a final remaining balance of 50 units. Designer bag = 3/5 of 50 = 30 units. The difference between the bag and shoes is 30 units - 25 units = 5 units. 5 units = $60 → 1 unit = $12. Total salary = 105 units × $12 = <strong>1260</strong>."
+        },
+        {
+            "question": "A piggy bank contains 200 coins, consisting only of 20-cent and 50-cent coins. {{F:3,8}} of the number of 20-cent coins is equal to {{F:1,4}} of the number of 50-cent coins. Find the total value of all the coins in the piggy bank in dollars.",
+            "answer": "76",
+            "tolerance": 0.01,
+            "hint": "Use the equal numerators strategy to find the quantity ratio of 20-cent coins to 50-cent coins.",
+            "explanation": "3/8 of 20c coins = 1/4 of 50c coins → 3/8 of 20c coins = 3/12 of 50c coins. This gives a quantity ratio of 20c : 50c = 8 : 12 = 2 : 3. Total units for quantity = 5 units = 200 coins → 1 unit = 40 coins. Count of 20c coins = 2 × 40 = 80; count of 50c coins = 3 × 40 = 120. Total value = (80 × $0.20) + (120 × $0.50) = $16 + $60 = <strong>76</strong>."
+        },
+        {
+            "question": "Tom, Dick, and Harry shared a box of game cards. Tom took {{F:1,3}} of the cards plus 4 cards. Dick took {{F:1,3}} of the remaining cards plus 6 cards. Harry took the last 26 cards. How many game cards were in the box at first?",
+            "answer": "78",
+            "tolerance": 0.01,
+            "hint": "Work backwards step-by-step from Harry's final count of 26 cards to undo the actions.",
+            "explanation": "Before Dick took his extra 6 cards, there were 26 + 6 = 32 cards. These 32 cards match the remaining 2/3 of the batch left by Tom. Remainder after Tom = 32 ÷ 2 × 3 = 48 cards. Before Tom took his extra 4 cards, there were 48 + 4 = 52 cards. These 52 cards match the remaining 2/3 of the initial total box. Total cards at first = 52 ÷ 2 × 3 = <strong>78</strong>."
+        }
+    ]
+}
