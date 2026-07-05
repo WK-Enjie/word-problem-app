@@ -45,7 +45,7 @@
             "explanation": "Original = $280 × 3/2 = <strong>$420</strong>."
         },
         {
-            "question": "Peter has {{F:3,5}} as many marbles as Tom. Tom has {{M:2,1,2}} times as many as Harry. Harry has 20. How many do Peter & Tom have altogether?",
+            "question": "Peter has {{F:3,5}} as many marbles as Tom. Tom has {{F:5,2}} times as many as Harry. Harry has 20. How many do Peter & Tom have altogether?",
             "answer": "80",
             "tolerance": 0.01,
             "hint": "Harry=20, Tom=2.5×20=50, Peter=3/5×50=30.",
@@ -66,11 +66,11 @@
             "explanation": "1 unit = 10 → total = 15 × 10 = <strong>150 oranges</strong>."
         },
         {
-            "question": "Funfair: {{F:1,3}} children. {{F:3,4}} of children, {{F:2,5}} of adults bought tickets. 310 tickets sold. Total visitors?",
-            "answer": "600",
+            "question": "In a basket, {{F:2,7}} of the fruits are pears and the rest are apples. After 15 apples are taken out and 15 pears are put in, the number of pears becomes equal to the number of apples. How many fruits are in the basket altogether?",
+            "answer": "70",
             "tolerance": 0.01,
-            "hint": "Let total = 60 units. Children = 20 units, adults = 40 units. Tickets = 15 + 16 = 31 units = 310.",
-            "explanation": "1 unit = 10 → total = 60 × 10 = <strong>600 visitors</strong>."
+            "hint": "Let the total fruits be 7 units. Pears = 2 units, Apples = 5 units. Think about how the gap closes when items are transferred.",
+            "explanation": "At first, Pears = 2u and Apples = 5u. After swapping 15 fruits, they are equal: 2u + 15 = 5u - 15. This means 3u = 30 → 1 unit = 10. Total fruits = 7 units × 10 = <strong>70 fruits</strong>."
         }
     ]
 }
